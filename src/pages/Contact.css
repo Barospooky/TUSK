@@ -1,0 +1,136 @@
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* Info */
+.contact-info-item {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.contact-info-item__icon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(201,168,76,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.contact-info-item__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--gold-light);
+  margin-bottom: 0.3rem;
+}
+
+.contact-info-item__line {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.8;
+}
+
+/* Form */
+.contact-form-wrap {
+  background: rgba(13, 30, 56, 0.6);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 3rem;
+}
+
+.contact-form__title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--off-white);
+  margin-bottom: 0.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.form-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+
+.form-input {
+  background: rgba(10, 22, 40, 0.8);
+  border: 1px solid rgba(201,168,76,0.2);
+  color: var(--off-white);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  padding: 0.85rem 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+  width: 100%;
+}
+
+.form-input:focus {
+  border-color: var(--gold-dark);
+}
+
+.form-input::placeholder { color: var(--gray); }
+
+.form-select {
+  cursor: pointer;
+}
+
+.form-select option { background: var(--navy-mid); }
+
+.form-textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+/* Success */
+.contact-success {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.contact-success__icon {
+  font-size: 3rem;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.contact-success h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--off-white);
+  margin-bottom: 1rem;
+}
+
+.contact-success p {
+  color: var(--gray-light);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+@media (max-width: 968px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-form-wrap { padding: 2rem 1.5rem; }
+}
