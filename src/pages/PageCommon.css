@@ -64,6 +64,13 @@
 }
 
 /* SERVICES PAGE */
+.services-page__body {
+  max-width: 1360px;
+  padding-top: 5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
 .services-feature {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
@@ -177,6 +184,18 @@
   color: var(--gray);
   line-height: 1.7;
   margin-bottom: 1.2rem;
+}
+
+.treatment-card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 19rem;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.2);
 }
 
 .treatment-card__meta {
@@ -331,6 +350,11 @@
 
 /* RESPONSIVE */
 @media (max-width: 968px) {
+  .services-page__body {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .services-feature {
     grid-template-columns: 1fr;
   }

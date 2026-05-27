@@ -28,7 +28,7 @@ const services = [
   },
   {
     title: 'Missing Teeth & Surgical Care',
-    copy: 'Implants, dentures, crowns, bridges, cleaning, bad breath care, and tooth extraction or surgical removal when needed.',
+    copy: 'Implants, dentures, fixed bridges, tooth-coloured and metal caps, surgical extractions, and mouth or facial pain management when needed.',
     image: '/service-preventive.jpeg',
   },
 ]

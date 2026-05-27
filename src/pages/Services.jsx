@@ -2,12 +2,116 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './PageCommon.css'
 
-const featuredService = {
-  eyebrow: 'Smile Designing',
-  title: 'Smile & Aesthetics',
-  copy: 'Personalised smile enhancement planning with veneers, laminates, caps, and aesthetic fillings tailored to facial balance and dental harmony.',
-  image: '/service-smile-designing.png',
-}
+const featuredServices = [
+  {
+    eyebrow: 'Smile Designing',
+    title: 'Smile & Aesthetics',
+    copy: 'Personalised smile enhancement planning with veneers, laminates, caps, and aesthetic fillings tailored to facial balance and dental harmony.',
+    image: '/service-smile-designing.png',
+  },
+  {
+    eyebrow: 'Facial Aesthetics',
+    title: 'Facial Aesthetics',
+    copy: 'Non-surgical facial aesthetic support including Botox and fillers when indicated for balanced, refreshed results with a refined, natural finish.',
+    image: '/service-facial-aesthetics.png',
+  },
+  {
+    eyebrow: 'Teeth Whitening & Bleaching',
+    title: 'Teeth Whitening & Bleaching',
+    copy: 'Management of discoloured teeth with professional bleaching, polishing, and tooth-coloured aesthetic finishing.',
+    image: '/service-teeth-whitening.png',
+  },
+  {
+    eyebrow: 'Tooth-Coloured Cosmetic Fillings',
+    title: 'Tooth-Coloured Cosmetic Fillings',
+    copy: 'Natural-looking restorations used to rebuild decayed, chipped, or discoloured teeth without compromising aesthetics.',
+    image: '/service-tooth-coloured-fillings.png',
+  },
+  {
+    eyebrow: 'Root Canal Treatment',
+    title: 'Root Canal Treatment',
+    copy: 'Treatment for toothache and deep long-standing cavities by removing infection and preserving the natural tooth whenever possible.',
+    image: '/service-root-canal-treatment.png',
+  },
+  {
+    eyebrow: 'Severe Dental Pain Due To Infection',
+    title: 'Severe Dental Pain Due To Infection',
+    copy: 'Treatment of teeth that are severely painful due to infection of teeth, with immediate relief planning and stabilising care.',
+    image: '/service-emergency-dental-pain-care.png',
+  },
+  {
+    eyebrow: 'Dental Swelling & Infection Management',
+    title: 'Dental Swelling & Infection Management',
+    copy: 'Focused treatment for facial swelling and oral infections caused by dental disease, with stabilisation and follow-up care.',
+    image: '/service-dental-swelling-infection.png',
+  },
+  {
+    eyebrow: 'Broken & Traumatic Tooth Care',
+    title: 'Broken & Traumatic Tooth Care',
+    copy: 'Restoration planning for fractured teeth caused by sports injuries, accidents, or sudden dental trauma.',
+    image: '/service-broken-traumatic-tooth-care.png',
+  },
+  {
+    eyebrow: 'Metal Braces',
+    title: 'Metal Braces',
+    copy: 'Reliable correction for crooked, crowded, or malaligned teeth using durable fixed orthodontic appliances.',
+    image: '/service-metal-braces.png',
+  },
+  {
+    eyebrow: 'Ceramic Braces',
+    title: 'Ceramic Braces',
+    copy: 'Aesthetic brace systems that blend more discreetly with natural teeth while correcting alignment effectively.',
+    image: '/service-ceramic-braces.png',
+  },
+  {
+    eyebrow: 'Invisible Aligners',
+    title: 'Invisible Aligners',
+    copy: 'Clear aligner therapy for modern, low-visibility smile correction with guided treatment sequencing.',
+    image: '/service-invisible-aligners.png',
+  },
+  {
+    eyebrow: 'Orthodontic Consultation & Diagnosis',
+    title: 'Orthodontic Consultation & Diagnosis',
+    copy: 'Comprehensive assessment and treatment planning for bite correction, smile alignment, and dentofacial harmony.',
+    image: '/service-orthodontic-consultation.png',
+  },
+  {
+    eyebrow: 'Dental Implants',
+    title: 'Dental Implants',
+    copy: 'Long-term replacement of missing teeth with implant-supported restorations for function, stability, and a natural look.',
+    image: '/service-dental-implants.png',
+  },
+  {
+    eyebrow: 'Removable Complete & Partial Dentures',
+    title: 'Removable Complete & Partial Dentures',
+    copy: 'Custom dentures for single or multiple missing teeth, designed for comfort, appearance, and practical daily use.',
+    image: '/service-dentures.png',
+  },
+  {
+    eyebrow: 'Fixed Bridges & Crowns',
+    title: 'Fixed Bridges & Crowns',
+    copy: 'Replacement and reinforcement solutions including fixed bridges, tooth-coloured caps, and metal caps.',
+    image: '/service-fixed-bridges-crowns.png',
+  },
+  {
+    eyebrow: 'Broken Tooth Reconstruction',
+    title: 'Broken Tooth Reconstruction',
+    copy: 'Management of severely broken teeth with restorative options aimed at preserving teeth when extraction can be avoided.',
+    image: '/service-broken-tooth-reconstruction.png',
+  },
+  {
+    eyebrow: 'Professional Cleaning & Scaling',
+    title: 'Professional Cleaning & Scaling',
+    copy: 'Regular clean-up and scaling to remove deposits, improve gum health, and support fresher breath.',
+    image: '/service-cleaning-scaling.png',
+  },
+  {
+    eyebrow: 'Bad Breath Management',
+    title: 'Bad Breath Management',
+    copy: 'Diagnosis-led care for bad breath, combining professional cleaning, cause assessment, and practical counselling.',
+    image: '/service-bad-breath-management.png',
+  },
+]
 
 const treatments = [
   {
@@ -49,8 +153,8 @@ const treatments = [
         sessions: '1-2',
       },
       {
-        name: 'Emergency Dental Pain Care',
-        desc: 'Immediate management for severe dental pain, sensitive roots, and acute discomfort affecting day-to-day function.',
+        name: 'Severe Dental Pain Due To Infection',
+        desc: 'Treatment of teeth that are severely painful due to infection of teeth, with immediate relief planning and stabilising care.',
         duration: '30-60 min',
         sessions: 'As needed',
       },
@@ -143,7 +247,7 @@ const treatments = [
       },
       {
         name: 'Tooth Extraction / Surgical Removal',
-        desc: 'Simple and surgical tooth removal for teeth that are severely damaged, infected, or no longer restorable.',
+        desc: 'Tooth extraction or surgical removal for teeth that are severely damaged, infected, or badly broken, including wisdom tooth extraction when needed.',
         duration: '30-60 min',
         sessions: '1',
       },
@@ -169,25 +273,27 @@ export default function Services() {
         </div>
       </div>
 
-      <div className="container" style={{ padding: '5rem 2rem' }}>
-        <section className="services-feature">
-          <div className="services-feature__content">
-            <span className="section-label">{featuredService.eyebrow}</span>
-            <h2 className="services-feature__title">{featuredService.title}</h2>
-            <p className="services-feature__copy">{featuredService.copy}</p>
-            <Link to="/contact" className="btn-gold services-feature__cta">
-              <span>Book This Treatment</span>
-            </Link>
-          </div>
+      <div className="container services-page__body">
+        {featuredServices.map((service) => (
+          <section key={service.eyebrow} className="services-feature">
+            <div className="services-feature__content">
+              <span className="section-label">{service.eyebrow}</span>
+              <h2 className="services-feature__title">{service.title}</h2>
+              <p className="services-feature__copy">{service.copy}</p>
+              <Link to="/contact" className="btn-gold services-feature__cta">
+                <span>Book This Treatment</span>
+              </Link>
+            </div>
 
-          <div className="services-feature__media">
-            <img
-              src={featuredService.image}
-              alt="Smile designing service visual"
-              className="services-feature__image"
-            />
-          </div>
-        </section>
+            <div className="services-feature__media">
+              <img
+                src={service.image}
+                alt={`${service.title} service visual`}
+                className="services-feature__image"
+              />
+            </div>
+          </section>
+        ))}
 
         {treatments.map((cat, ci) => (
           <div key={ci} className="services-category">
