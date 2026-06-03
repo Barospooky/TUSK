@@ -115,7 +115,7 @@ const featuredServices = [
 
 const treatments = [
   {
-    category: 'Smile & Aesthetics',
+    category: 'Cosmetic Dentistry',
     items: [
       {
         name: 'Smile Designing',
@@ -144,7 +144,7 @@ const treatments = [
     ],
   },
   {
-    category: 'Root Canal & Pain Relief',
+    category: 'Root Canal Treatment',
     items: [
       {
         name: 'Root Canal Treatment',
@@ -173,7 +173,7 @@ const treatments = [
     ],
   },
   {
-    category: 'Orthodontics',
+    category: 'Orthodontic Dentistry',
     items: [
       {
         name: 'Metal Braces',
@@ -202,7 +202,7 @@ const treatments = [
     ],
   },
   {
-    category: 'Replacement & Restoration',
+    category: 'Modern Dentistry',
     items: [
       {
         name: 'Dental Implants',
@@ -231,7 +231,7 @@ const treatments = [
     ],
   },
   {
-    category: 'General & Surgical Care',
+    category: 'General Dentistry',
     items: [
       {
         name: 'Professional Cleaning & Scaling',
@@ -260,6 +260,14 @@ const treatments = [
     ],
   },
 ]
+
+const categoryIds = {
+  'Cosmetic Dentistry': 'cosmetic-dentistry',
+  'Root Canal Treatment': 'root-canal-treatment',
+  'Orthodontic Dentistry': 'orthodontic-dentistry',
+  'Modern Dentistry': 'modern-dentistry',
+  'General Dentistry': 'general-dentistry',
+}
 
 export default function Services() {
   return (
@@ -296,7 +304,17 @@ export default function Services() {
         ))}
 
         {treatments.map((cat, ci) => (
-          <div key={ci} className="services-category">
+          <details
+            key={cat.category}
+            id={categoryIds[cat.category]}
+            className="services-category"
+            open={ci === 0}
+          >
+            <summary className="services-category__summary">
+              <span>{String(ci + 1).padStart(2, '0')}</span>
+              <strong>{cat.category}</strong>
+              <em>{cat.items.length} treatments</em>
+            </summary>
             <div className="services-category__header">
               <span className="section-label">{cat.category}</span>
               <div className="divider">
@@ -327,7 +345,7 @@ export default function Services() {
                 </div>
               ))}
             </div>
-          </div>
+          </details>
         ))}
       </div>
 

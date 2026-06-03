@@ -2,10 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Footer.css'
 
+const mapUrl = 'https://www.google.com/maps/search/?api=1&query=D-202%2C%20New%20Raikar%20Chambers%2C%20Deonar%2C%20Mumbai%20400088'
+
 export default function Footer() {
   return (
     <footer className="footer">
-      {/* Top border ornament */}
       <div className="footer__ornament">
         <div className="footer__ornament-line" />
         <div className="footer__ornament-diamond">◆</div>
@@ -14,15 +15,17 @@ export default function Footer() {
 
       <div className="container">
         <div className="footer__grid">
-          {/* Brand */}
           <div className="footer__brand">
-            <div className="footer__logo">
-              <span className="footer__logo-the">The</span>
-              <span className="footer__logo-name">Tusk</span>
-              <span className="footer__logo-sub">Dental Clinic</span>
-            </div>
+            <Link to="/" className="footer__logo-link" aria-label="The Tusk Dental Clinic home">
+              <img src="/tusk-logo.jpeg" alt="The Tusk Dental Clinic logo" className="footer__logo-image" />
+              <div className="footer__logo">
+                <span className="footer__logo-the">The</span>
+                <span className="footer__logo-name">Tusk</span>
+                <span className="footer__logo-sub">Dental Clinic</span>
+              </div>
+            </Link>
             <p className="footer__tagline">
-              Where ancient wisdom meets modern dentistry. Your smile is our sacred art.
+              Diagnosis-led dental care for healthier teeth, confident smiles, and comfortable visits.
             </p>
             <div className="footer__socials">
               <a href="#" className="footer__social" aria-label="Facebook">
@@ -37,7 +40,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links */}
           <div className="footer__col">
             <h4 className="footer__col-title">Navigation</h4>
             <ul className="footer__links">
@@ -48,45 +50,46 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
           <div className="footer__col">
             <h4 className="footer__col-title">Treatments</h4>
             <ul className="footer__links">
-              <li><a href="#">Teeth Whitening</a></li>
-              <li><a href="#">Dental Implants</a></li>
-              <li><a href="#">Orthodontics</a></li>
-              <li><a href="#">Cosmetic Dentistry</a></li>
-              <li><a href="#">Root Canal</a></li>
+              <li><Link to="/services#cosmetic-dentistry">Smile Designing</Link></li>
+              <li><Link to="/services#root-canal-treatment">Root Canal</Link></li>
+              <li><Link to="/services#orthodontic-dentistry">Braces & Aligners</Link></li>
+              <li><Link to="/services#modern-dentistry">Dental Implants</Link></li>
+              <li><Link to="/services#general-dentistry">Cleaning & Scaling</Link></li>
             </ul>
           </div>
 
-          {/* Contact */}
           <div className="footer__col">
             <h4 className="footer__col-title">Visit Us</h4>
             <div className="footer__contact">
               <div className="footer__contact-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>123, Anna Salai, Chennai – 600002</span>
+                <span>D-202, New Raikar Chambers, Deonar, Mumbai - 400088</span>
               </div>
+              <a href={mapUrl} target="_blank" rel="noreferrer" className="footer__map-link">
+                View on Google Maps
+              </a>
               <div className="footer__contact-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="16" height="16"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.1 11.28 19.79 19.79 0 01.07 2.69 2 2 0 012.07.5h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006 6l.87-.87a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 15.22v1.7z"/></svg>
                 <span>+91 98765 43210</span>
               </div>
               <div className="footer__contact-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <span>hello@tuskedental.com</span>
+                <span>hello@tuskdental.com</span>
               </div>
               <div className="footer__contact-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="16" height="16"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
-                <span>Mon–Sat: 9am – 8pm</span>
+                <span>Mon - Sat: 9:00 AM - 8:00 PM</span>
               </div>
             </div>
           </div>
         </div>
 
         <div className="footer__bottom">
-          <p>© 2025 The Tusk Dental Clinic. All rights reserved.</p>
-          <p>Crafted with care for your smile ◆</p>
+          <p>© 2026 The Tusk Dental Clinic. All rights reserved.</p>
+          <p>Comfortable care for every smile ◆</p>
         </div>
       </div>
     </footer>

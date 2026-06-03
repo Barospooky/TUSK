@@ -448,40 +448,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="home-footer reveal">
-        <div className="container home-footer__inner">
-          <div className="home-footer__col">
-            <span className="home-footer__eyebrow">The Tusk Clinic</span>
-            <p>D-202, New Raikar Chambers</p>
-            <p>Opposite Neelkanth Apartments, Deonar, Mumbai - 400088</p>
-            <a href="https://maps.google.com" className="home-footer__link">View on Google Maps</a>
-          </div>
-
-          <div className="home-footer__brand">
-            <h3>The Tusk Dental Clinic</h3>
-            <p>Thoughtful dental care where precision meets elegance.</p>
-            <div className="home-footer__socials">
-              <a href="#" aria-label="Instagram">ig</a>
-              <a href="#" aria-label="Facebook">fb</a>
-              <a href="#" aria-label="WhatsApp">wa</a>
-              <a href="#" aria-label="Email">@</a>
-            </div>
-          </div>
-
-          <div className="home-footer__col home-footer__col--right">
-            <span className="home-footer__eyebrow">Opening Hours</span>
-            <p>Mon - Fri: 8:00 - 19:00</p>
-            <p>Saturday: 9:00 - 14:00</p>
-            <p>Sunday: Closed</p>
-
-            <div className="home-footer__legal">
-              {footerLinks.map((item) => (
-                <a key={item} href="#">{item}</a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   )
 }

@@ -25,6 +25,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
 }
 
 body {
@@ -179,6 +180,8 @@ body {
 }
 
 .animate-in {
+  opacity: 1;
+  visibility: visible;
   animation: fadeInUp 0.8s ease forwards;
 }
 .delay-1 { animation-delay: 0.1s; }

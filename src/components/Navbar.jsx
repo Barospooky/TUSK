@@ -2,6 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import './Navbar.css'
 
+const aboutLinks = [
+  { label: 'Our Approach', to: '/about#our-approach' },
+  { label: 'Our Team', to: '/about#our-team' },
+  { label: 'Testimonials', to: '/#testimonials' },
+]
+
+const serviceLinks = [
+  { label: 'Root Canal Treatment', to: '/services#root-canal-treatment' },
+  { label: 'Cosmetic Dentistry', to: '/services#cosmetic-dentistry' },
+  { label: 'Modern Dentistry', to: '/services#modern-dentistry' },
+  { label: 'Orthodontic Dentistry', to: '/services#orthodontic-dentistry' },
+  { label: 'General Dentistry', to: '/services#general-dentistry' },
+]
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -12,10 +26,12 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const closeMenu = () => setMenuOpen(false)
+
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner">
-        <Link to="/" className="navbar__logo" onClick={() => setMenuOpen(false)}>
+        <Link to="/" className="navbar__logo" onClick={closeMenu}>
           <img src="/tusk-logo.jpeg" alt="The Tusk Dental Clinic" className="navbar__logo-image" />
           <div className="navbar__brand">
             <span className="navbar__brand-title">The Tusk Dental Clinic</span>
@@ -25,8 +41,30 @@ export default function Navbar() {
 
         <ul className="navbar__links">
           <li><NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')}>Home</NavLink></li>
-          <li><NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>About</NavLink></li>
-          <li><NavLink to="/services" className={({ isActive }) => (isActive ? 'active' : '')}>Services</NavLink></li>
+          <li className="navbar__dropdown">
+            <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>
+              About Us <span className="navbar__chevron">▾</span>
+            </NavLink>
+            <div className="navbar__dropdown-menu">
+              {aboutLinks.map((item) => (
+                <Link key={item.label} to={item.to} className="navbar__dropdown-link">
+                  <span>→</span>{item.label}
+                </Link>
+              ))}
+            </div>
+          </li>
+          <li className="navbar__dropdown">
+            <NavLink to="/services" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Our Services <span className="navbar__chevron">▾</span>
+            </NavLink>
+            <div className="navbar__dropdown-menu navbar__dropdown-menu--wide">
+              {serviceLinks.map((item) => (
+                <Link key={item.label} to={item.to} className="navbar__dropdown-link">
+                  <span>→</span>{item.label}
+                </Link>
+              ))}
+            </div>
+          </li>
           <li><NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>Contact</NavLink></li>
         </ul>
 
@@ -48,11 +86,21 @@ export default function Navbar() {
       </div>
 
       <div className={`navbar__mobile ${menuOpen ? 'open' : ''}`}>
-        <NavLink to="/" end onClick={() => setMenuOpen(false)}>Home</NavLink>
-        <NavLink to="/about" onClick={() => setMenuOpen(false)}>About</NavLink>
-        <NavLink to="/services" onClick={() => setMenuOpen(false)}>Services</NavLink>
-        <NavLink to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavLink>
-        <Link to="/contact" className="btn-gold" onClick={() => setMenuOpen(false)}>
+        <NavLink to="/" end onClick={closeMenu}>Home</NavLink>
+        <NavLink to="/about" onClick={closeMenu}>About Us</NavLink>
+        <div className="navbar__mobile-group">
+          {aboutLinks.map((item) => (
+            <Link key={item.label} to={item.to} onClick={closeMenu}>→ {item.label}</Link>
+          ))}
+        </div>
+        <NavLink to="/services" onClick={closeMenu}>Our Services</NavLink>
+        <div className="navbar__mobile-group">
+          {serviceLinks.map((item) => (
+            <Link key={item.label} to={item.to} onClick={closeMenu}>→ {item.label}</Link>
+          ))}
+        </div>
+        <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
+        <Link to="/contact" className="btn-gold" onClick={closeMenu}>
           <span>Book a Consultation</span>
         </Link>
       </div>
