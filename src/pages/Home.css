@@ -1,5 +1,5 @@
 .home-refined {
-  background: #0a1320;
+  background: var(--navy);
 }
 
 .reference-hero {
@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #0a1320;
+  background: var(--navy);
 }
 
 .reference-hero__bg,
@@ -113,7 +113,7 @@
 .reference-hero__title span {
   display: block;
   margin-top: 0.55rem;
-  color: #d3aa43;
+  color: var(--gold);
 }
 
 .reference-hero__copy {
@@ -305,7 +305,7 @@
 
 .standard-strip {
   padding: 4rem 0 4.5rem;
-  background: #182534;
+  background: var(--navy-mid);
 }
 
 .standard-strip__inner {
@@ -330,7 +330,7 @@
 
 .standard-strip__title span {
   display: block;
-  color: #d3aa43;
+  color: var(--gold);
 }
 
 .standard-strip__copy {
@@ -428,7 +428,7 @@
 }
 
 .services-panel__title span {
-  color: #d3aa43;
+  color: var(--gold);
 }
 
 .services-panel__grid {
@@ -483,7 +483,7 @@
 .transformations-strip {
   padding-top: 0.2rem;
   padding-bottom: 4.4rem;
-  background: #182534;
+  background: var(--navy-mid);
 }
 
 .transformations-strip__title {
@@ -498,7 +498,7 @@
 
 .transformations-strip__title span {
   display: block;
-  color: #d3aa43;
+  color: var(--gold);
 }
 
 .transformations-grid {
@@ -577,7 +577,7 @@
 
 .doctors-panel {
   padding: 0.6rem 0 4.3rem;
-  background: #182534;
+  background: var(--navy-mid);
 }
 
 .doctors-panel__card {
@@ -599,7 +599,7 @@
 }
 
 .doctors-panel__title span {
-  color: #d3aa43;
+  color: var(--gold);
 }
 
 .doctors-panel__grid {
@@ -674,7 +674,7 @@
 .story-strip {
   padding-top: 0.25rem;
   padding-bottom: 4.2rem;
-  background: #182534;
+  background: var(--navy-mid);
 }
 
 .story-strip__inner {
@@ -695,7 +695,7 @@
 
 .story-strip__title span {
   display: block;
-  color: #d3aa43;
+  color: var(--gold);
 }
 
 .story-strip__copy {
@@ -775,7 +775,7 @@
 
 .story-point span {
   display: block;
-  color: #d3aa43;
+  color: var(--gold);
   font-family: var(--font-sans);
   font-size: 0.58rem;
   letter-spacing: 0.18rem;
@@ -792,7 +792,7 @@
 .testimonials-strip {
   padding-top: 0.2rem;
   padding-bottom: 4.1rem;
-  background: #182534;
+  background: var(--navy-mid);
 }
 
 .testimonials-strip__header {
@@ -813,7 +813,7 @@
 }
 
 .testimonials-strip__title span {
-  color: #d3aa43;
+  color: var(--gold);
 }
 
 .testimonials-strip__rating {
@@ -827,7 +827,7 @@
 
 .testimonials-strip__stars,
 .testimonial-card-premium__stars {
-  color: #d3aa43;
+  color: var(--gold);
   font-size: 0.82rem;
   letter-spacing: 0.2rem;
 }
@@ -853,7 +853,7 @@
   height: 2rem;
   object-fit: cover;
   border-radius: 50%;
-  border: 2px solid #182534;
+  border: 2px solid var(--navy-mid);
   margin-left: -0.45rem;
   background: #d8e8f5;
 }
@@ -917,7 +917,7 @@
 
 .consultation-strip-dark {
   padding: 0.2rem 0 0;
-  background: #182534;
+  background: var(--navy-mid);
 }
 
 .consultation-strip-dark__inner {
@@ -955,7 +955,7 @@
 
 .consultation-strip-dark__title span {
   display: block;
-  color: #d3aa43;
+  color: var(--gold);
 }
 
 .consultation-strip-dark__copy {
@@ -1010,7 +1010,7 @@
 
 .home-footer {
   padding: 1.2rem 0 2.6rem;
-  background: #182534;
+  background: var(--navy-mid);
 }
 
 .home-footer__inner {
@@ -1079,7 +1079,7 @@
 
 .home-footer__link,
 .home-footer__legal a {
-  color: #d3aa43;
+  color: var(--gold);
   text-decoration: none;
   font-family: var(--font-sans);
   font-size: 0.76rem;
@@ -1343,5 +1343,268 @@
 
   .testimonials-strip__track {
     animation-duration: 24s;
+  }
+}
+
+
+/* ── Featured Doctor Card (Founder) ── */
+.doctor-item--featured {
+  grid-column: span 2;
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.08), rgba(18, 34, 68, 0.3));
+  border: 1px solid rgba(201, 168, 76, 0.22);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1.8rem;
+}
+
+.doctor-item--featured .doctor-item__avatar-wrap {
+  width: 7rem;
+  height: 7rem;
+  position: relative;
+}
+
+.doctor-item__founder-badge {
+  position: absolute;
+  top: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: var(--navy);
+  font-family: var(--font-sans);
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.doctor-item--featured .doctor-item__body h3 {
+  font-size: 1.3rem;
+  color: #1c2d3d;
+}
+
+.doctor-item--featured .doctor-item__role {
+  font-size: 0.62rem;
+  color: rgba(29, 44, 61, 0.7);
+  font-weight: 500;
+}
+
+.doctor-item--featured .doctor-item__experience {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* ── Why Choose Us ── */
+.why-choose-us {
+  background: var(--navy-mid);
+  padding: 6rem 0;
+}
+
+.why-choose-us__header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.why-choose-us__sub {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--gray);
+  max-width: 38rem;
+  margin: 1rem auto 0;
+  line-height: 1.8;
+}
+
+.why-choose-us__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.8rem;
+}
+
+.why-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  padding: 2rem 1.5rem;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.why-card:hover {
+  border-color: rgba(201, 168, 76, 0.3);
+  background: rgba(201, 168, 76, 0.04);
+}
+
+.why-card__icon {
+  font-size: 1.4rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.why-card__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--off-white);
+  margin-bottom: 0.7rem;
+}
+
+.why-card__desc {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--gray);
+  line-height: 1.8;
+}
+
+/* ── Patient Journey ── */
+.patient-journey {
+  background: var(--navy);
+  padding: 6rem 0;
+}
+
+.patient-journey__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.patient-journey__steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.journey-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  position: relative;
+}
+
+.journey-step__number {
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 1px solid var(--gold-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.05rem;
+  flex-shrink: 0;
+  background: rgba(201, 168, 76, 0.06);
+}
+
+.journey-step__content {
+  padding: 0.25rem 1.5rem 0;
+  max-width: 10rem;
+}
+
+.journey-step__content h4 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--off-white);
+  margin-bottom: 0.4rem;
+}
+
+.journey-step__content p {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+.journey-step__arrow {
+  font-size: 1.5rem;
+  color: var(--gold-dark);
+  margin-top: 0.5rem;
+  padding: 0 0.5rem;
+  opacity: 0.6;
+  align-self: flex-start;
+}
+
+/* ── Reveal Animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive: Why Choose Us & Patient Journey ── */
+@media (max-width: 1100px) {
+  .why-choose-us__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .why-choose-us__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .patient-journey__steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .journey-step {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .journey-step__content {
+    padding: 0.75rem 0 0;
+    max-width: 18rem;
+    text-align: center;
+  }
+
+  .journey-step__arrow {
+    transform: rotate(90deg);
+    padding: 0;
+    margin: 0.5rem auto;
+  }
+
+  .doctor-item--featured {
+    grid-column: span 1;
+    grid-template-columns: 5.5rem 1fr;
+  }
+
+  .doctor-item--featured .doctor-item__avatar-wrap {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+
+  .doctors-panel__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .why-choose-us__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .doctor-item--featured {
+    grid-template-columns: 4.5rem 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .doctor-item--featured .doctor-item__avatar-wrap {
+    width: 4.5rem;
+    height: 4.5rem;
   }
 }

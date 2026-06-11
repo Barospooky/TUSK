@@ -4,18 +4,53 @@ import './PageCommon.css'
 
 const specialists = [
   {
+    name: 'Dr. Bala Subramanian',
+    role: 'Founder & Chief Dental Surgeon',
+    focus: 'Micro-Endodontics, Smile Designing & Advanced Restorative Dentistry',
+    qualification: 'MDS – Conservative Dentistry & Endodontics',
+    experience: '15+ Years',
+    city: 'Chembur, Mumbai',
+    languages: 'English, Hindi, Tamil',
+    image: '/dr-balasubramaniam-shankar.jpeg',
+    isFounder: true,
+    bio: 'Dr. Bala Subramanian is the Founder of The Tusk Dental Clinic and its Chief Dental Surgeon. An MDS specialist in Conservative Dentistry and Endodontics, he trained at the prestigious Government Dental College and Hospital, Mumbai, and served as an Assistant Professor before establishing The Tusk.',
+    overview: 'He built this clinic around a simple belief: dental care should feel calm, precise, and deeply personal. His expertise spans micro-endodontics, smile designing, cosmetic restorations, and complex case planning. He routinely uses rubber dam isolation and magnification-assisted techniques for accuracy and long-term outcomes.',
+    education: [
+      'MDS – Conservative Dentistry & Endodontics, Government Dental College, Mumbai',
+      'Former Assistant Professor – Government Dental College and Hospital, Mumbai',
+      'Founder & Chief Dental Surgeon – The Tusk Dental Clinic, Chembur',
+    ],
+    expertise: [
+      'Root canal treatment using microscope & latest instruments',
+      'Endodontic retreatment & complex case management',
+      'Management of iatrogenic errors and procedural mishaps',
+      'Smile designing, post & core restorations',
+      'Composite restoration & aesthetic dentistry',
+      'Rubber dam dentistry & magnification-assisted endodontics',
+      'Restoration of badly broken down teeth',
+    ],
+    value: [
+      'Predictable outcomes with quality-focused care',
+      'Reduced chair time through efficient treatment mechanics',
+      'Evidence-based, ethical clinical practice',
+      'Dedicated long-term patient follow-up',
+    ],
+  },
+  {
     name: 'Dr. Swapnil Yelmar',
     role: 'Consultant Orthodontist',
     focus: 'Advanced Smile Correction & Dentofacial Orthopaedics',
-    qualification: 'BDS, MDS - Orthodontics & Dentofacial Orthopaedics',
+    qualification: 'BDS, MDS – Orthodontics & Dentofacial Orthopaedics',
     experience: '4 Years',
     city: 'Mumbai',
+    languages: 'English, Hindi, Marathi',
     image: '/dr-swapnil-yelmar.jpeg',
+    isFounder: false,
     bio: 'Dr. Swapnil Yelmar is a dedicated Consultant Orthodontist specialising in advanced smile corrections and dentofacial orthopaedics. With an academic foundation from the prestigious Government Dental College, Mumbai, where he earned both his BDS and MDS, he combines clinical precision with a patient-centric approach.',
     overview: 'He is committed to delivering functional, aesthetic results that enhance both confidence and oral health through modern orthodontic techniques.',
     education: [
-      'BDS - Government Dental College, Mumbai',
-      'MDS - Orthodontics & Dentofacial Orthopaedics, Government Dental College, Mumbai',
+      'BDS – Government Dental College, Mumbai',
+      'MDS – Orthodontics & Dentofacial Orthopaedics, Government Dental College, Mumbai',
     ],
     expertise: [
       'Metal braces and ceramic braces',
@@ -34,16 +69,18 @@ const specialists = [
     name: 'Dr. Heti Sunil Kacha',
     role: 'Consultant Oral and Maxillofacial Surgeon',
     focus: 'Oral Surgery, Facial Esthetic & Cosmetology',
-    qualification: 'BDS, MDS Oral and Maxillofacial Surgery',
+    qualification: 'BDS, MDS – Oral and Maxillofacial Surgery',
     experience: '2+ Years of Consultant Practice',
     city: 'Mumbai',
+    languages: 'English, Hindi, Gujarati',
     image: '/dr-heti-kacha.jpeg',
+    isFounder: false,
     bio: 'Dr. Heti Sunil Kacha is skilled in surgical care and critical care management. She focuses on developing tailored treatment care plans and fostering interdisciplinary teamwork whenever required.',
     overview: 'Her clinical approach combines careful diagnosis, surgical precision, patient comfort, and facial aesthetic awareness for oral and maxillofacial procedures.',
     education: [
-      'Bachelor of Dental Surgery - Mumbai, 2020',
-      'MDS Oral and Maxillofacial Surgery - Nair Hospital, 2024',
-      'Fellowship in Facial Esthetic and Cosmetology - Mumbai, 2026',
+      'Bachelor of Dental Surgery – Mumbai, 2020',
+      'MDS Oral and Maxillofacial Surgery – Nair Hospital, 2024',
+      'Fellowship in Facial Esthetic and Cosmetology – Mumbai, 2026',
     ],
     expertise: [
       'Oral and maxillofacial surgical care',
@@ -56,40 +93,6 @@ const specialists = [
       'Tailored surgical treatment plans',
       'Interdisciplinary teamwork when needed',
       'Calm and comfort-focused surgical care',
-    ],
-  },
-  {
-    name: 'Dr. Balasubramaniam Shankar',
-    role: 'Endodontist',
-    focus: 'Micro-Endodontics, Root Canal & Restorative Dentistry',
-    qualification: 'MDS - Conservative Dentistry and Endodontics',
-    experience: '2+ Years',
-    city: 'Mumbai & Navi Mumbai',
-    image: '/dr-balasubramaniam-shankar.jpeg',
-    bio: 'Dr. Balasubramaniam Shankar is a dedicated and detail-oriented MDS specialist in Conservative Dentistry and Endodontics, trained at the prestigious Government Dental College and Hospital, Mumbai.',
-    overview: 'With focused clinical experience, he brings precision, patience, and an evidence-based approach to modern endodontic practice. His expertise includes complex endodontic retreatments, management of iatrogenic errors, procedural mishaps, and restoration of badly broken down teeth. He routinely incorporates rubber dam isolation and magnification-assisted techniques to improve accuracy, patient safety, and long-term outcomes.',
-    education: [
-      'MDS - Conservative Dentistry and Endodontics',
-      'Former Assistant Professor - Government Dental College and Hospital, Mumbai',
-      'Chief Dentist at The Tusk Dental Clinic, Chembur Mumbai',
-    ],
-    expertise: [
-      'Root canal treatment using microscope and latest instruments',
-      'Endodontic retreatment',
-      'Management of iatrogenic errors and mishaps',
-      'Composite restoration',
-      'Post and core and smile designing',
-      'Restoration of badly broken down teeth',
-      'Rubber dam dentistry',
-      'Magnification-assisted endodontics',
-      'Advanced case planning and execution',
-    ],
-    value: [
-      'Predictable outcomes with quality-focused care',
-      'Efficient treatment mechanics to reduce chair time',
-      'Dedicated long-term patient follow-ups',
-      'Evidence-based and ethical practice',
-      'Available for consultations, appointments, and referrals',
     ],
   },
 ]
@@ -165,15 +168,19 @@ export default function About() {
           </div>
 
           <div className="specialist-showcase">
-            <article className="specialist-profile">
+            <article className={`specialist-profile${activeDoctor.isFounder ? ' specialist-profile--founder' : ''}`}>
+              {activeDoctor.isFounder && (
+                <span className="specialist-founder-badge">Founder &amp; Chief Dental Surgeon</span>
+              )}
               <span className="specialist-profile__role">{activeDoctor.role}</span>
               <h3 className="specialist-profile__name">{activeDoctor.name}</h3>
               <p className="specialist-profile__focus">{activeDoctor.focus}</p>
 
               <div className="specialist-profile__meta">
-                <span>{activeDoctor.qualification}</span>
-                <span>{activeDoctor.experience}</span>
-                <span>{activeDoctor.city}</span>
+                <span>🎓 {activeDoctor.qualification}</span>
+                <span>⏱ {activeDoctor.experience}</span>
+                <span>📍 {activeDoctor.city}</span>
+                {activeDoctor.languages && <span>🗣 {activeDoctor.languages}</span>}
               </div>
 
               <p className="specialist-profile__bio">{activeDoctor.bio}</p>
@@ -181,7 +188,7 @@ export default function About() {
 
               <div className="specialist-profile__details">
                 <div>
-                  <h4>Education & Professional Details</h4>
+                  <h4>Education &amp; Professional Details</h4>
                   <ul>
                     {activeDoctor.education.map((item) => (
                       <li key={item}>{item}</li>
@@ -214,7 +221,7 @@ export default function About() {
             </article>
 
             <div className="specialist-profile__photo-frame">
-              <img src={activeDoctor.image} alt={activeDoctor.name} className="specialist-profile__photo" />
+              <img src={activeDoctor.image} alt={activeDoctor.name} className="specialist-profile__photo" loading="lazy" />
             </div>
 
             <div className="specialist-selector" aria-label="Select specialist">
@@ -222,10 +229,12 @@ export default function About() {
                 <button
                   key={doctor.name}
                   type="button"
-                  className={`specialist-selector__item ${index === activeDoctorIndex ? 'active' : ''}`}
+                  className={`specialist-selector__item ${index === activeDoctorIndex ? 'active' : ''}${doctor.isFounder ? ' specialist-selector__item--founder' : ''}`}
                   onClick={() => setActiveDoctorIndex(index)}
+                  aria-label={`View profile of ${doctor.name}`}
                 >
-                  <img src={doctor.image} alt={doctor.name} />
+                  {doctor.isFounder && <span className="specialist-selector__founder-tag">Founder</span>}
+                  <img src={doctor.image} alt={doctor.name} loading="lazy" />
                   <span>{doctor.name.replace('Dr. ', '')}</span>
                   <small>{doctor.role}</small>
                 </button>

@@ -5,17 +5,18 @@
 }
 
 :root {
-  --navy: #0a1628;
-  --navy-mid: #0d1e38;
-  --navy-light: #122244;
-  --gold: #c9a84c;
-  --gold-light: #e8c96b;
-  --gold-dark: #a07830;
-  --gold-pale: #f5e6c0;
+  --navy: #000f24;          /* Deep midnight navy background from logo edge */
+  --navy-mid: #011632;      /* Midnight navy from the logo center */
+  --navy-light: #042550;    /* Vibrant navy blue accent */
+  --gold: #d4a73b;          /* Luxury warm gold from the 'Tusk' text */
+  --gold-light: #fad674;    /* Shiny gold highlight */
+  --gold-dark: #9f761d;     /* Deep gold shadow/border */
+  --gold-pale: #fcf1d2;     /* Subtle warm gold tint */
+  --accent: #f5921e;        /* Logo Om/crown orange accent */
   --white: #ffffff;
-  --off-white: #f8f4ec;
-  --gray-light: #d0c8b8;
-  --gray: #9a9080;
+  --off-white: #faf9f6;     /* Pure warm luxury white */
+  --gray-light: #d6cfc2;
+  --gray: #9c9384;
   --font-display: 'Cinzel', serif;
   --font-body: 'Cormorant Garamond', serif;
   --font-sans: 'Montserrat', sans-serif;
@@ -126,7 +127,7 @@ body {
   transition: all 0.3s ease;
 }
 .btn-outline:hover {
-  background: rgba(201, 168, 76, 0.1);
+  background: rgba(207, 157, 60, 0.1);
   border-color: var(--gold);
 }
 
