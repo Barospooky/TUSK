@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './Footer.css'
 
 const mapUrl = 'https://www.google.com/maps/search/?api=1&query=D-202%2C%20New%20Raikar%20Chambers%2C%20Deonar%2C%20Mumbai%20400088'
+const mapEmbedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.234567890123!2d72.9123456789!3d19.0123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c63b12345678%3A0xabcdef1234567890!2sNew%20Raikar%20Chambers%2C%20Deonar%2C%20Mumbai%2C%20Maharashtra%20400088!5e0!3m2!1sen!2sin!4v1718000000000!5m2!1sen!2sin'
 
 export default function Footer() {
   return (
@@ -68,9 +69,29 @@ export default function Footer() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 <span>D-202, New Raikar Chambers, Deonar, Mumbai - 400088</span>
               </div>
-              <a href={mapUrl} target="_blank" rel="noreferrer" className="footer__map-link">
-                View on Google Maps
-              </a>
+
+              {/* Google Maps Embed */}
+              <div className="footer__map-container">
+                <p className="footer__map-heading">Find Us</p>
+                <div className="footer__map-preview">
+                  <iframe
+                    title="The Tusk Dental Clinic location"
+                    src={mapEmbedUrl}
+                    width="100%"
+                    height="160"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+                <a href={mapUrl} target="_blank" rel="noreferrer" className="footer__map-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                  View on Google Maps
+                </a>
+              </div>
               <div className="footer__contact-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="16" height="16"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.1 11.28 19.79 19.79 0 01.07 2.69 2 2 0 012.07.5h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006 6l.87-.87a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 15.22v1.7z"/></svg>
                 <span>+91 98765 43210</span>

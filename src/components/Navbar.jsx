@@ -4,6 +4,7 @@ import './Navbar.css'
 
 const aboutLinks = [
   { label: 'Our Approach', to: '/about#our-approach' },
+  { label: 'Gallery', to: '/about#gallery' },
   { label: 'Our Team', to: '/about#our-team' },
   { label: 'Testimonials', to: '/#testimonials' },
 ]
@@ -53,6 +54,7 @@ export default function Navbar() {
               ))}
             </div>
           </li>
+          <li><Link to="/about#gallery">Gallery</Link></li>
           <li className="navbar__dropdown">
             <NavLink to="/services" className={({ isActive }) => (isActive ? 'active' : '')}>
               Our Services <span className="navbar__chevron">▾</span>
@@ -93,6 +95,7 @@ export default function Navbar() {
             <Link key={item.label} to={item.to} onClick={closeMenu}>→ {item.label}</Link>
           ))}
         </div>
+        <Link to="/about#gallery" onClick={closeMenu}>Gallery</Link>
         <NavLink to="/services" onClick={closeMenu}>Our Services</NavLink>
         <div className="navbar__mobile-group">
           {serviceLinks.map((item) => (

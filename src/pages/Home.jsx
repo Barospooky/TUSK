@@ -14,22 +14,22 @@ const services = [
   {
     title: 'Smile Designing & Aesthetics',
     copy: 'Smile designing, veneers, laminates, bleaching, and facial aesthetic treatments planned for natural-looking enhancement.',
-    image: '/service-aesthetic.jpeg',
+    image: '/service-smile-designing.png',
   },
   {
     title: 'Braces & Aligners',
     copy: 'Metal braces, ceramic braces, and invisible aligners for crooked teeth, bite correction, and confident smile alignment.',
-    image: '/hero-clinic-bg.png',
+    image: '/service-invisible-aligners.png',
   },
   {
     title: 'Root Canal & Pain Relief',
     copy: 'Root canal treatment, dental pain care, swelling management, and fractured tooth treatment focused on preserving teeth.',
-    image: '/hero-implant.png',
+    image: '/service-root-canal-treatment.png',
   },
   {
     title: 'Missing Teeth & Surgical Care',
     copy: 'Implants, dentures, fixed bridges, tooth-coloured and metal caps, surgical extractions, and mouth or facial pain management when needed.',
-    image: '/service-preventive.jpeg',
+    image: '/service-dental-implants.png',
   },
 ]
 
@@ -127,7 +127,7 @@ const testimonials = [
   {
     text: 'The aligner journey was smoother than expected. The team stayed patient, accessible, and deeply invested in getting every refinement right.',
     author: 'A. R., Dubai',
-    meta: 'Invisalign · Bite Refinement',
+    meta: 'Invisalign · Bx  ite Refinement',
   },
 ]
 

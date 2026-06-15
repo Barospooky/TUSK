@@ -11,8 +11,10 @@
 
 .navbar--scrolled {
   padding-top: 0;
-  background: transparent;
+  background: rgba(226, 237, 245, 0.88);
   border-bottom: 0;
+  box-shadow: 0 10px 30px rgba(8, 16, 28, 0.14);
+  backdrop-filter: blur(18px);
 }
 
 .navbar__inner {
@@ -33,10 +35,11 @@
 }
 
 .navbar--scrolled .navbar__inner {
-  background: rgba(226, 237, 245, 0.88);
-  border-color: rgba(255, 255, 255, 0.65);
-  box-shadow: 0 10px 30px rgba(8, 16, 28, 0.14);
-  backdrop-filter: blur(18px);
+  background: transparent;
+  border-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .navbar__logo {

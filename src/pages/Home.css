@@ -447,37 +447,41 @@
   overflow: hidden;
   background: rgba(255, 255, 255, 0.3);
   margin-bottom: 0.9rem;
+  flex-shrink: 0;
 }
 
 .service-tile__image {
   width: 100%;
-  height: 15rem;
+  height: 13rem;
   display: block;
   object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
 }
 
-.service-tile:nth-child(2) .service-tile__image {
-  object-position: center;
+.service-tile:hover .service-tile__image {
+  transform: scale(1.04);
 }
 
 .service-tile:nth-child(3) .service-tile__image {
-  object-fit: contain;
+  object-fit: cover;
   background: rgba(255, 255, 255, 0.26);
-  padding: 0.7rem;
+  padding: 0;
 }
 
 .service-tile h3 {
   color: #162636;
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.98rem;
   font-weight: 600;
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.55rem;
+  line-height: 1.3;
 }
 
 .service-tile p {
   color: rgba(23, 38, 54, 0.76);
-  font-size: 0.88rem;
-  line-height: 1.8;
+  font-size: 0.85rem;
+  line-height: 1.75;
 }
 
 .transformations-strip {
@@ -604,15 +608,20 @@
 
 .doctors-panel__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2.2rem 2.6rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem 2rem;
 }
 
+/* Founder takes full width when 2-col at medium screens */
 .doctor-item {
   display: grid;
   grid-template-columns: 5rem 1fr;
   align-items: start;
   gap: 1.2rem;
+  padding: 1.4rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(40, 68, 100, 0.14);
+  background: rgba(255, 255, 255, 0.45);
 }
 
 .doctor-item__avatar-wrap {
@@ -667,8 +676,8 @@
 
 .doctor-item__body p {
   color: rgba(27, 41, 57, 0.8);
-  font-size: 0.92rem;
-  line-height: 1.8;
+  font-size: 0.88rem;
+  line-height: 1.78;
 }
 
 .story-strip {
@@ -1097,16 +1106,7 @@
   margin-top: 1rem;
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* .reveal defined once below at line ~1533 */
 
 @keyframes testimonialsDrift {
   from {
@@ -1407,7 +1407,7 @@
 
 .why-choose-us__header {
   text-align: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
 }
 
 .why-choose-us__sub {
@@ -1421,8 +1421,8 @@
 
 .why-choose-us__grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1.8rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
 }
 
 .why-card {
@@ -1523,17 +1523,18 @@
 .journey-step__arrow {
   font-size: 1.5rem;
   color: var(--gold-dark);
-  margin-top: 0.5rem;
-  padding: 0 0.5rem;
-  opacity: 0.6;
+  margin-top: 0.55rem;
+  padding: 0 0.3rem;
+  opacity: 0.55;
   align-self: flex-start;
+  flex-shrink: 0;
 }
 
 /* ── Reveal Animation ── */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(22px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
 }
 
 .reveal.visible {
@@ -1545,6 +1546,14 @@
 @media (max-width: 1100px) {
   .why-choose-us__grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .doctors-panel__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .doctor-item--featured {
+    grid-column: span 2;
   }
 }
 
