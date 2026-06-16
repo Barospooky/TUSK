@@ -4,17 +4,36 @@ import './Navbar.css'
 
 const aboutLinks = [
   { label: 'Our Approach', to: '/about#our-approach' },
-  { label: 'Gallery', to: '/about#gallery' },
   { label: 'Our Team', to: '/about#our-team' },
   { label: 'Testimonials', to: '/#testimonials' },
 ]
 
-const serviceLinks = [
-  { label: 'Root Canal Treatment', to: '/services#root-canal-treatment' },
-  { label: 'Cosmetic Dentistry', to: '/services#cosmetic-dentistry' },
-  { label: 'Modern Dentistry', to: '/services#modern-dentistry' },
-  { label: 'Orthodontic Dentistry', to: '/services#orthodontic-dentistry' },
-  { label: 'General Dentistry', to: '/services#general-dentistry' },
+const treatmentColumns = [
+  {
+    title: 'Restorative Care',
+    to: '/services#modern-dentistry',
+    items: ['Dental Implants', 'Fixed Bridges & Crowns', 'Dentures', 'Broken Tooth Reconstruction'],
+  },
+  {
+    title: 'Cosmetic Dentistry',
+    to: '/services#cosmetic-dentistry',
+    items: ['Smile Designing', 'Teeth Whitening', 'Tooth-Coloured Fillings', 'Facial Aesthetics'],
+  },
+  {
+    title: 'Endodontics',
+    to: '/services#root-canal-treatment',
+    items: ['Root Canal Treatment', 'Dental Pain Relief', 'Swelling & Infection Care', 'Traumatic Tooth Care'],
+  },
+  {
+    title: 'Orthodontics',
+    to: '/services#orthodontic-dentistry',
+    items: ['Invisible Aligners', 'Metal Braces', 'Ceramic Braces', 'Bite Correction'],
+  },
+  {
+    title: 'General Dentistry',
+    to: '/services#general-dentistry',
+    items: ['Cleaning & Scaling', 'Bad Breath Management', 'Tooth Extraction', 'Oral & Facial Pain'],
+  },
 ]
 
 export default function Navbar() {
@@ -49,24 +68,35 @@ export default function Navbar() {
             <div className="navbar__dropdown-menu">
               {aboutLinks.map((item) => (
                 <Link key={item.label} to={item.to} className="navbar__dropdown-link">
-                  <span>→</span>{item.label}
+                  <span>›</span>{item.label}
                 </Link>
               ))}
             </div>
           </li>
-          <li><Link to="/about#gallery">Gallery</Link></li>
-          <li className="navbar__dropdown">
+          <li className="navbar__dropdown navbar__dropdown--mega">
             <NavLink to="/services" className={({ isActive }) => (isActive ? 'active' : '')}>
-              Our Services <span className="navbar__chevron">▾</span>
+              Treatments <span className="navbar__plus">+</span>
             </NavLink>
             <div className="navbar__dropdown-menu navbar__dropdown-menu--wide">
-              {serviceLinks.map((item) => (
-                <Link key={item.label} to={item.to} className="navbar__dropdown-link">
-                  <span>→</span>{item.label}
-                </Link>
+              {treatmentColumns.map((column) => (
+                <div key={column.title} className="navbar__treatment-column">
+                  <Link to={column.to} className="navbar__treatment-title">
+                    <span className="navbar__tooth" aria-hidden="true">◆</span>
+                    {column.title}
+                  </Link>
+                  <div className="navbar__treatment-list">
+                    {column.items.map((item) => (
+                      <Link key={item} to={column.to} className="navbar__dropdown-link">
+                        <span>›</span>{item}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </li>
+          <li><Link to="/about#our-team">Consultants</Link></li>
+          <li><NavLink to="/gallery" className={({ isActive }) => (isActive ? 'active' : '')}>Gallery</NavLink></li>
           <li><NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>Contact</NavLink></li>
         </ul>
 
@@ -92,16 +122,17 @@ export default function Navbar() {
         <NavLink to="/about" onClick={closeMenu}>About Us</NavLink>
         <div className="navbar__mobile-group">
           {aboutLinks.map((item) => (
-            <Link key={item.label} to={item.to} onClick={closeMenu}>→ {item.label}</Link>
+            <Link key={item.label} to={item.to} onClick={closeMenu}>› {item.label}</Link>
           ))}
         </div>
-        <Link to="/about#gallery" onClick={closeMenu}>Gallery</Link>
-        <NavLink to="/services" onClick={closeMenu}>Our Services</NavLink>
+        <NavLink to="/services" onClick={closeMenu}>Treatments</NavLink>
         <div className="navbar__mobile-group">
-          {serviceLinks.map((item) => (
-            <Link key={item.label} to={item.to} onClick={closeMenu}>→ {item.label}</Link>
+          {treatmentColumns.map((column) => (
+            <Link key={column.title} to={column.to} onClick={closeMenu}>› {column.title}</Link>
           ))}
         </div>
+        <Link to="/about#our-team" onClick={closeMenu}>Consultants</Link>
+        <NavLink to="/gallery" onClick={closeMenu}>Gallery</NavLink>
         <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
         <Link to="/contact" className="btn-gold" onClick={closeMenu}>
           <span>Book a Consultation</span>

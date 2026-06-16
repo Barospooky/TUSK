@@ -1,6 +1,6 @@
 /* ── Contact Info Row (Full Width) ── */
 .contact-info-row {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   margin-bottom: 4rem;

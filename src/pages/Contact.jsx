@@ -29,7 +29,7 @@ export default function Contact() {
     if (form.email && !EMAIL_REGEX.test(form.email)) {
       newErrors.email = 'Enter a valid email address.'
     }
-    if (!form.service) newErrors.service = 'Please select a service.'
+    if (!form.service) newErrors.service = 'Please select a treatment.'
     if (form.date && form.date < MIN_DATE) {
       newErrors.date = 'Date cannot be in the past.'
     }
@@ -192,7 +192,7 @@ export default function Contact() {
 
                   <div className="form-row">
                     <div className="form-group">
-                      <label className="form-label" htmlFor="contact-service">Service Needed *</label>
+                      <label className="form-label" htmlFor="contact-service">Treatment Needed *</label>
                       <select
                         id="contact-service"
                         className={`form-input form-select${errors.service ? ' form-input--error' : ''}`}
@@ -203,7 +203,7 @@ export default function Contact() {
                         aria-required="true"
                         aria-describedby={errors.service ? 'service-error' : undefined}
                       >
-                        <option value="">Select a service</option>
+                        <option value="">Select a treatment</option>
                         <option>Smile Designing &amp; Aesthetics</option>
                         <option>Root Canal &amp; Pain Relief</option>
                         <option>Braces / Aligners</option>

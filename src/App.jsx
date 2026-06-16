@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Services from './pages/Services'
 import About from './pages/About'
+import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 import './App.css'
 
@@ -13,6 +14,7 @@ const WHATSAPP_MSG = encodeURIComponent('Hi, I would like to book a consultation
 
 function AppContent() {
   const location = useLocation()
+  const isContactPage = location.pathname === '/contact'
 
   useEffect(() => {
     if (!location.hash) {
@@ -33,9 +35,10 @@ function AppContent() {
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-      <Footer />
+      {!isContactPage && <Footer />}
 
       {/* Floating WhatsApp Button (Desktop) */}
       <a

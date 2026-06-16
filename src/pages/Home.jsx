@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Home.css'
 
@@ -7,8 +7,6 @@ const quickStats = [
   { value: '18', label: 'Years in Practice' },
   { value: '4', label: 'Specialist Doctors' },
 ]
-
-const brandMarks = ['Invisalign', 'Nobel Biocare', 'Straumann', 'Dentsply Sirona', 'CEREC']
 
 const services = [
   {
@@ -33,30 +31,31 @@ const services = [
   },
 ]
 
+const homeTreatmentPreview = [
+  { title: 'Dental Implants', desc: 'Permanent tooth replacement for confident smile and chewing support.', icon: 'implant' },
+  { title: 'Fixed Bridges & Crowns', desc: 'Natural-looking restoration and seamless gap replacement.', icon: 'crown' },
+  { title: 'Removable Dentures', desc: 'Comfortable full or partial removable denture replacement.', icon: 'dentures' },
+  { title: 'Root Canal Treatment', desc: 'Pain-free root canal treatment focused on saving the natural tooth.', icon: 'root' },
+  { title: 'Invisible Aligners', desc: 'Clear aligners for discreet tooth straightening.', icon: 'aligners' },
+  { title: 'Teeth Whitening', desc: 'Professional whitening treatment for a brighter smile.', icon: 'sparkle' },
+]
+
+const treatmentIconPaths = {
+  implant: 'M8.2 3.7c1.2-.8 2.6.2 3.8.2s2.6-1 3.8-.2c1.8 1.1 1.5 4.3.5 6.7-.7 1.7-1.1 3.4-1.4 5.2-.3 2.1-.8 4.3-2.2 4.3-1.2 0-1.2-3.5-2.7-3.5s-1.5 3.5-2.7 3.5c-1.4 0-1.9-2.2-2.2-4.3-.3-1.8-.7-3.5-1.4-5.2-1-2.4-1.3-5.6.5-6.7Z M12 10.2v9 M9.8 12.2h4.4 M9.8 14.4h4.4 M9.8 16.6h4.4',
+  crown: 'M5.5 9.6c2.1-3 4.2-4.5 6.5-4.5s4.4 1.5 6.5 4.5 M6.5 12.2h11 M7.4 12.2v5.1c0 1.1.9 2 2 2h5.2c1.1 0 2-.9 2-2v-5.1 M9.2 8.7l1.3 3.5 M14.8 8.7l-1.3 3.5 M10 16h4',
+  dentures: 'M4.6 10c1.5-2.8 4-4.2 7.4-4.2s5.9 1.4 7.4 4.2 M5.2 14.5c1.8 2.8 4.1 4.2 6.8 4.2s5-1.4 6.8-4.2 M6.8 11.7h10.4 M8 14.3h8 M9.5 8.9v2.8 M12 8.4v3.3 M14.5 8.9v2.8',
+  root: 'M8.2 3.7c1.2-.8 2.6.2 3.8.2s2.6-1 3.8-.2c1.8 1.1 1.5 4.3.5 6.7-.7 1.7-1.1 3.4-1.4 5.2-.3 2.1-.8 4.3-2.2 4.3-1.2 0-1.2-3.5-2.7-3.5s-1.5 3.5-2.7 3.5c-1.4 0-1.9-2.2-2.2-4.3-.3-1.8-.7-3.5-1.4-5.2-1-2.4-1.3-5.6.5-6.7Z M12 7.8v7.8 M9.7 11.1H12 M12 13.6h2.3',
+  aligners: 'M5.4 10.2c1.2-2.2 3.4-3.4 6.6-3.4s5.4 1.2 6.6 3.4 M6.4 12.5h11.2 M8 10.1h2.5v3.2H8z M13.5 10.1H16v3.2h-2.5z M8.3 16.2c2.4 1.3 5 1.3 7.4 0',
+  sparkle: 'M8.3 3.7c1.2-.8 2.6.2 3.8.2s2.6-1 3.8-.2c1.8 1.1 1.5 4.3.5 6.7-.7 1.7-1.1 3.4-1.4 5.2-.3 2.1-.8 4.3-2.2 4.3-1.2 0-1.2-3.5-2.7-3.5s-1.5 3.5-2.7 3.5c-1.4 0-1.9-2.2-2.2-4.3-.3-1.8-.7-3.5-1.4-5.2-1-2.4-1.3-5.6.5-6.7Z M18.2 4.8l.8 2.1 2.1.8-2.1.8-.8 2.1-.8-2.1-2.1-.8 2.1-.8.8-2.1Z M18.7 14.3l.5 1.4 1.4.5-1.4.5-.5 1.4-.5-1.4-1.4-.5 1.4-.5.5-1.4Z',
+}
+
 const transformations = [
-  // {
-  //   category: 'Aesthetic Dentistry',
-  //   title: 'Full Smile Reconstruction',
-  //   image: '/transform-case.jpeg',
-  //   variant: 'wide',
-  // },
-  // {
-  //   category: 'Orthodontics',
-  //   title: 'Invisalign Alignment',
-  //   image: '/transform-doctor-female.jpeg',
-  //   variant: 'tall',
-  // },
-  // {
-  //   category: 'Implantology',
-  //   title: 'Single Tooth Implant',
-  //   image: '/transform-doctor-male.jpeg',
-  //   variant: 'small',
-  // },
   {
-    category: 'Clinical Design',
-    title: 'Refined Treatment Space',
-    image: '/transform-clinic-room.jpeg',
-    variant: 'small',
+    category: 'Restorative Dentistry',
+    title: 'Tooth-Coloured Filling',
+    desc: 'Before shows the prepared cavity; after shows a natural composite filling shaped to restore the tooth surface.',
+    beforeImage: '/transform-clinic-room.jpeg',
+    afterImage: '/transform-clinic-room.jpeg',
   },
 ]
 
@@ -66,6 +65,7 @@ const doctors = [
     name: 'Dr. Bala Subramanian',
     role: 'Founder & Chief Dental Surgeon',
     experience: '15+ years of clinical excellence',
+    summary: 'Micro-endodontics, smile designing, and advanced restorative care led with calm precision.',
     bio: 'Dr. Bala Subramanian is the founder of The Tusk Dental Clinic and its Chief Dental Surgeon. An MDS specialist in Conservative Dentistry and Endodontics, he built the clinic around a belief that every patient deserves calm, precise, and transparent dental care. His expertise spans micro-endodontics, smile designing, and advanced restorative care.',
     image: '/dr-balasubramaniam-shankar.jpeg',
     isFounder: true,
@@ -74,6 +74,7 @@ const doctors = [
     name: 'Dr. Swapnil Yelmar',
     role: 'Consultant Orthodontist',
     experience: '4 years of experience',
+    summary: 'Advanced smile correction, braces, aligners, and dentofacial orthopaedic planning.',
     bio: 'Dr. Swapnil Yelmar is a dedicated Consultant Orthodontist specializing in advanced smile corrections and dentofacial orthopaedics. Trained at Government Dental College, Mumbai, he combines clinical precision with a patient-centric approach to deliver functional, aesthetic results.',
     image: '/dr-swapnil-yelmar.jpeg',
     isFounder: false,
@@ -82,6 +83,7 @@ const doctors = [
     name: 'Dr. Heti Sunil Kacha',
     role: 'Consultant Oral and Maxillofacial Surgeon',
     experience: '2+ years of consultant practice',
+    summary: 'Oral surgery, facial esthetics, critical care-aware planning, and patient-first surgical care.',
     bio: 'Dr. Heti Sunil Kacha is skilled in oral and maxillofacial surgery, facial esthetics, and critical care management. She focuses on tailored treatment planning and collaborative interdisciplinary care to deliver precise, patient-centered outcomes.',
     image: '/dr-heti-kacha.jpeg',
     isFounder: false,
@@ -149,6 +151,7 @@ const patientJourney = [
 
 export default function Home() {
   const observerRef = useRef(null)
+  const [comparisonPositions, setComparisonPositions] = useState({})
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -168,6 +171,19 @@ export default function Home() {
 
     return () => observerRef.current?.disconnect()
   }, [])
+
+  const whyDiagnosticItems = [
+    { icon: '01', title: 'Personalised Plans', desc: 'Every case is uniquely planned around diagnosis, goals, and comfort preferences.' },
+    { icon: '02', title: 'Advanced Technology', desc: 'Modern equipment and magnification-assisted techniques support precise treatment.' },
+    { icon: '03', title: 'Comfortable Environment', desc: 'A calm, thoughtfully designed space helps make dental visits feel easier.' },
+    { icon: '04', title: 'Specialist Support', desc: 'Focused specialists guide each case with clear communication and careful planning.' },
+    { icon: '05', title: 'Experienced Care', desc: 'Our doctors bring focused clinical expertise across restorative and aesthetic dentistry.' },
+    { icon: '06', title: 'Transparent Pricing', desc: 'Clear treatment timelines and cost breakdowns are discussed before you commit.' },
+  ]
+
+  const updateComparison = (title, value) => {
+    setComparisonPositions((current) => ({ ...current, [title]: value }))
+  }
 
   return (
     <div className="home home-refined">
@@ -200,7 +216,7 @@ export default function Home() {
                 <span>Book a Consultation</span>
               </Link>
               <Link to="/services" className="reference-hero__secondary">
-                Explore Services
+                Explore Treatments
               </Link>
             </div>
           </div>
@@ -226,12 +242,6 @@ export default function Home() {
                 </div>
               ))}
             </div>
-
-            <div className="reference-hero__brands">
-              {brandMarks.map((mark) => (
-                <span key={mark}>{mark}</span>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -240,20 +250,29 @@ export default function Home() {
         <div className="container standard-strip__inner">
           <div className="standard-strip__left">
             <h2 className="standard-strip__title">
-              The standard
-              <span>others aspire to.</span>
+              Care planned
+              <span>around your smile.</span>
             </h2>
             <p className="standard-strip__copy">
-              Thoughtful dentistry with a premium clinical environment, refined workflows,
-              and treatment planning built to make every visit feel calm and confident.
+              From your first consultation to the final review, every treatment at The Tusk is
+              guided by diagnosis, comfort, and clear communication.
             </p>
 
-            <div className="standard-strip__image-frame">
-              <img
-                src="/hero-clinic-bg.png"
-                alt="The Tusk Dental Clinic interior"
-                className="standard-strip__image"
-              />
+            <div className="standard-strip__images">
+              <div className="standard-strip__image-frame">
+                <img
+                  src="/clinic-treatment-room.jpeg"
+                  alt="The Tusk treatment room"
+                  className="standard-strip__image"
+                />
+              </div>
+              <div className="standard-strip__image-frame standard-strip__image-frame--secondary">
+                <img
+                  src="/clinic-consultation-room.jpeg"
+                  alt="The Tusk consultation room"
+                  className="standard-strip__image"
+                />
+              </div>
             </div>
           </div>
 
@@ -271,23 +290,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Services Panel ── */}
+      {/* ── Treatments Panel ── */}
       <section className="services-panel reveal">
         <div className="container">
-          <div className="services-panel__card">
-            <h2 className="services-panel__title">
-              Our <span>services.</span>
-            </h2>
+          <div className="home-treatments-preview">
+            <div className="home-treatments-preview__header">
+              <div>
+                <span className="section-label">Treatments</span>
+                <h2>Advanced <span>Dental Treatments</span></h2>
+                <p>Comprehensive care for your complete dental health.</p>
+              </div>
+              <Link to="/services" className="home-treatments-preview__button">
+                View All Treatments <span>→</span>
+              </Link>
+            </div>
 
-            <div className="services-panel__grid">
-              {services.map((service) => (
-                <article key={service.title} className="service-tile">
-                  <div className="service-tile__image-wrap">
-                    <img src={service.image} alt={service.title} className="service-tile__image" loading="lazy" />
+            <div className="home-treatments-preview__grid">
+              {homeTreatmentPreview.map((treatment) => (
+                <Link key={treatment.title} to="/services" className="home-treatments-preview__card">
+                  <span className="home-treatments-preview__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      {treatmentIconPaths[treatment.icon].split(' M').map((path, index) => (
+                        <path key={index} d={index === 0 ? path : `M${path}`} />
+                      ))}
+                    </svg>
+                  </span>
+                  <div>
+                    <strong>{treatment.title}</strong>
+                    <small>{treatment.desc}</small>
+                    <span className="home-treatments-preview__arrow">→</span>
                   </div>
-                  <h3>{service.title}</h3>
-                  <p>{service.copy}</p>
-                </article>
+                </Link>
               ))}
             </div>
           </div>
@@ -298,21 +331,37 @@ export default function Home() {
       <section className="section transformations-strip reveal">
         <div className="container">
           <h2 className="transformations-strip__title">
-            Transformations that
-            <span>speak for themselves.</span>
+            Transformations that <span>speak for themselves.</span>
           </h2>
 
-          <div className="transformations-grid">
+          <div className="transformations-carousel" aria-label="Before and after treatment comparisons">
             {transformations.map((item) => (
               <article
                 key={item.title}
-                className={`transformation-card transformation-card--${item.variant}`}
+                className="transformation-card"
+                style={{ '--split': `${comparisonPositions[item.title] ?? 100}%` }}
               >
-                <img src={item.image} alt={item.title} className="transformation-card__image" loading="lazy" />
-                <div className="transformation-card__overlay" />
-                <div className="transformation-card__content">
+                <div className="transformation-card__compare">
+                  <img src={item.beforeImage} alt={`${item.title} before`} className="transformation-card__image transformation-card__image--before" loading="lazy" />
+                  <img src={item.afterImage} alt={`${item.title} after`} className="transformation-card__image transformation-card__image--after" loading="lazy" />
+                  <span className="transformation-card__label transformation-card__label--before">Before</span>
+                  <span className="transformation-card__label transformation-card__label--after">After</span>
+                  <span className="transformation-card__divider" />
+                  <span className="transformation-card__handle">↔</span>
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={comparisonPositions[item.title] ?? 100}
+                    onChange={(event) => updateComparison(item.title, event.target.value)}
+                    className="transformation-card__range"
+                    aria-label={`Compare before and after for ${item.title}`}
+                  />
+                </div>
+                <div className="transformation-card__body">
                   <span>{item.category}</span>
                   <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
                 </div>
               </article>
             ))}
@@ -340,7 +389,7 @@ export default function Home() {
                     <span className="doctor-item__role">{doctor.role}</span>
                     <div className="doctor-item__divider" />
                     <span className="doctor-item__experience">{doctor.experience}</span>
-                    <p>{doctor.bio}</p>
+                    <p>{doctor.summary}</p>
                   </div>
                 </article>
               ))}
@@ -357,14 +406,37 @@ export default function Home() {
             <h2 className="section-title">Why Patients Choose <span>The Tusk</span></h2>
             <p className="why-choose-us__sub">We believe great dental care starts with honesty, comfort, and genuine expertise.</p>
           </div>
-          <div className="why-choose-us__grid">
-            {whyChooseUs.map((item) => (
-              <div key={item.title} className="why-card">
-                <div className="why-card__icon">{item.icon}</div>
-                <h4 className="why-card__title">{item.title}</h4>
-                <p className="why-card__desc">{item.desc}</p>
+          <div className="why-diagnostic">
+            <div className="why-diagnostic__list why-diagnostic__list--left">
+              {whyDiagnosticItems.slice(0, 3).map((item) => (
+                <article key={item.title} className="why-diagnostic__item">
+                  <div className="why-diagnostic__copy">
+                    <h4>{item.title}</h4>
+                    <p>{item.desc}</p>
+                  </div>
+                  <span className="why-diagnostic__icon">{item.icon}</span>
+                </article>
+              ))}
+            </div>
+
+            <div className="why-diagnostic__visual" aria-hidden="true">
+              <div className="why-diagnostic__orbit" />
+              <div className="why-diagnostic__disc">
+                <img src="https://tranquildentalstudio.com/image/why-tooth.png" alt="" loading="lazy" />
               </div>
-            ))}
+            </div>
+
+            <div className="why-diagnostic__list why-diagnostic__list--right">
+              {whyDiagnosticItems.slice(3).map((item) => (
+                <article key={item.title} className="why-diagnostic__item">
+                  <span className="why-diagnostic__icon">{item.icon}</span>
+                  <div className="why-diagnostic__copy">
+                    <h4>{item.title}</h4>
+                    <p>{item.desc}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
