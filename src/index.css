@@ -35,7 +35,21 @@ body {
   font-family: var(--font-body);
   font-size: 18px;
   line-height: 1.7;
+  min-width: 320px;
   overflow-x: hidden;
+}
+
+img,
+picture,
+video,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
 }
 
 /* Scrollbar */

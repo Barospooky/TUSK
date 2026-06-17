@@ -173,6 +173,11 @@
   transform: translateY(-1px);
 }
 
+.footer__contact-item span,
+.footer__tagline {
+  overflow-wrap: anywhere;
+}
+
 .footer__bottom {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
