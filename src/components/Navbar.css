@@ -415,6 +415,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: #203049;
   }
 
   .navbar__brand-subtitle {

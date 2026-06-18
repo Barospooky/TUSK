@@ -597,6 +597,11 @@
   color: #9f761d;
 }
 
+.home-treatments-preview__icon--implant {
+  background: rgba(198, 238, 198, 0.68);
+  color: #2da53b;
+}
+
 .home-treatments-preview__icon svg {
   width: 2rem;
   height: 2rem;
@@ -605,6 +610,22 @@
   stroke-width: 1.7;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.home-treatments-preview__icon--implant svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+.home-treatments-preview__icon-image {
+  width: 2.35rem;
+  height: 2.35rem;
+  object-fit: contain;
+  display: block;
+}
+
+.home-treatments-preview__card--implant .home-treatments-preview__arrow {
+  color: #2da53b;
 }
 
 .home-treatments-preview__card strong {

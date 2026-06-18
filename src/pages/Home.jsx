@@ -32,10 +32,10 @@ const services = [
 ]
 
 const homeTreatmentPreview = [
-  { title: 'Dental Implants', desc: 'Permanent tooth replacement for confident smile and chewing support.', icon: 'implant' },
-  { title: 'Fixed Bridges & Crowns', desc: 'Natural-looking restoration and seamless gap replacement.', icon: 'crown' },
-  { title: 'Removable Dentures', desc: 'Comfortable full or partial removable denture replacement.', icon: 'dentures' },
-  { title: 'Root Canal Treatment', desc: 'Pain-free root canal treatment focused on saving the natural tooth.', icon: 'root' },
+  { title: 'Dental Implants', desc: 'Permanent tooth replacement for confident smile and chewing support.', icon: 'implant', image: '/dental-implant.png?v=5' },
+  { title: 'Fixed Bridges & Crowns', desc: 'Natural-looking restoration and seamless gap replacement.', icon: 'crown', image: '/dental-surgery.png?v=2' },
+  { title: 'Removable Dentures', desc: 'Comfortable full or partial removable denture replacement.', icon: 'dentures', image: '/denture.png?v=2' },
+  { title: 'Root Canal Treatment', desc: 'Pain-free root canal treatment focused on saving the natural tooth.', icon: 'root', image: '/root-canal.png?v=2' },
   { title: 'Invisible Aligners', desc: 'Clear aligners for discreet tooth straightening.', icon: 'aligners' },
   { title: 'Teeth Whitening', desc: 'Professional whitening treatment for a brighter smile.', icon: 'sparkle' },
 ]
@@ -343,13 +343,24 @@ export default function Home() {
 
             <div className="home-treatments-preview__grid">
               {homeTreatmentPreview.map((treatment) => (
-                <Link key={treatment.title} to="/services" className="home-treatments-preview__card">
-                  <span className="home-treatments-preview__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                      {treatmentIconPaths[treatment.icon].split(' M').map((path, index) => (
-                        <path key={index} d={index === 0 ? path : `M${path}`} />
-                      ))}
-                    </svg>
+                <Link
+                  key={treatment.title}
+                  to="/services"
+                  className={`home-treatments-preview__card ${treatment.icon === 'implant' ? 'home-treatments-preview__card--implant' : ''}`}
+                >
+                  <span
+                    className={`home-treatments-preview__icon ${treatment.icon === 'implant' ? 'home-treatments-preview__icon--implant' : ''}`}
+                    aria-hidden="true"
+                  >
+                    {treatment.image ? (
+                      <img src={treatment.image} alt="" className="home-treatments-preview__icon-image" />
+                    ) : (
+                      <svg viewBox="0 0 24 24">
+                        {treatmentIconPaths[treatment.icon].split(' M').map((path, index) => (
+                          <path key={index} d={index === 0 ? path : `M${path}`} />
+                        ))}
+                      </svg>
+                    )}
                   </span>
                   <div>
                     <strong>{treatment.title}</strong>
