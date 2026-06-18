@@ -593,13 +593,38 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(207, 157, 60, 0.16);
-  color: #9f761d;
+  background: rgba(248, 244, 236, 0.98);
+  color: #b88712;
 }
 
 .home-treatments-preview__icon--implant {
-  background: rgba(198, 238, 198, 0.68);
+  background: rgba(208, 238, 208, 0.92);
   color: #2da53b;
+}
+
+.home-treatments-preview__icon--crown {
+  background: rgba(241, 236, 255, 0.95);
+  color: #7a63d2;
+}
+
+.home-treatments-preview__icon--dentures {
+  background: rgba(255, 232, 236, 0.96);
+  color: #db7a8c;
+}
+
+.home-treatments-preview__icon--root {
+  background: rgba(228, 244, 247, 0.96);
+  color: #4a98a8;
+}
+
+.home-treatments-preview__icon--aligners {
+  background: rgba(216, 232, 245, 0.98);
+  color: #233447;
+}
+
+.home-treatments-preview__icon--sparkle {
+  background: rgba(35, 52, 71, 0.92);
+  color: #ffffff;
 }
 
 .home-treatments-preview__icon svg {

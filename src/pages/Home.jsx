@@ -17,7 +17,7 @@ const services = [
   {
     title: 'Braces & Aligners',
     copy: 'Metal braces, ceramic braces, and invisible aligners for crooked teeth, bite correction, and confident smile alignment.',
-    image: '/service-invisible-aligners.png',
+    image: '/retainer.png',
   },
   {
     title: 'Root Canal & Pain Relief',
@@ -36,8 +36,8 @@ const homeTreatmentPreview = [
   { title: 'Fixed Bridges & Crowns', desc: 'Natural-looking restoration and seamless gap replacement.', icon: 'crown', image: '/dental-surgery.png?v=2' },
   { title: 'Removable Dentures', desc: 'Comfortable full or partial removable denture replacement.', icon: 'dentures', image: '/denture.png?v=2' },
   { title: 'Root Canal Treatment', desc: 'Pain-free root canal treatment focused on saving the natural tooth.', icon: 'root', image: '/root-canal.png?v=2' },
-  { title: 'Invisible Aligners', desc: 'Clear aligners for discreet tooth straightening.', icon: 'aligners' },
-  { title: 'Teeth Whitening', desc: 'Professional whitening treatment for a brighter smile.', icon: 'sparkle' },
+  { title: 'Invisible Aligners', desc: 'Clear aligners for discreet tooth straightening.', icon: 'aligners', image: '/retainer.png?v=1' },
+  { title: 'Teeth Whitening', desc: 'Professional whitening treatment for a brighter smile.', icon: 'sparkle', image: '/tooth-hygiene.png?v=1' },
 ]
 
 const treatmentIconPaths = {
@@ -349,7 +349,7 @@ export default function Home() {
                   className={`home-treatments-preview__card ${treatment.icon === 'implant' ? 'home-treatments-preview__card--implant' : ''}`}
                 >
                   <span
-                    className={`home-treatments-preview__icon ${treatment.icon === 'implant' ? 'home-treatments-preview__icon--implant' : ''}`}
+                    className={`home-treatments-preview__icon home-treatments-preview__icon--${treatment.icon}`}
                     aria-hidden="true"
                   >
                     {treatment.image ? (

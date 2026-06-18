@@ -8,7 +8,7 @@ const treatments = [
     items: [
       { title: 'Smile Designing', copy: 'Personalised smile enhancement planning with veneers, laminates, caps, and aesthetic fillings tailored to facial balance and dental harmony.', image: '/service-smile-designing.png', duration: 'Custom', sessions: 'Planned in stages', bestFor: 'Customized smile transformation for a confident, natural-looking smile.' },
       { title: 'Facial Aesthetics', copy: 'Non-surgical facial aesthetic support including Botox and fillers when indicated for balanced, refreshed results.', image: '/service-facial-aesthetics.png', duration: '30-60 min', sessions: 'As advised', bestFor: 'Subtle facial refinement that supports the overall smile and profile.' },
-      { title: 'Teeth Whitening & Bleaching', copy: 'Professional bleaching, polishing, and tooth-coloured aesthetic finishing for discoloured teeth.', image: '/service-teeth-whitening.png', duration: '45-90 min', sessions: '1-2', bestFor: 'Professional whitening treatment for a brighter smile.' },
+      { title: 'Teeth Whitening & Bleaching', copy: 'Professional bleaching, polishing, and tooth-coloured aesthetic finishing for discoloured teeth.', image: '/tooth-hygiene.png', duration: '45-90 min', sessions: '1-2', bestFor: 'Professional whitening treatment for a brighter smile.' },
       { title: 'Tooth-Coloured Cosmetic Fillings', copy: 'Natural-looking restorations used to rebuild decayed, chipped, or discoloured teeth.', image: '/service-tooth-coloured-fillings.png', duration: '30-60 min', sessions: '1', bestFor: 'Small cavities, chips, or visible restorations that need a natural finish.' },
     ],
   },
@@ -24,7 +24,7 @@ const treatments = [
   {
     category: 'Orthodontics',
     items: [
-      { title: 'Invisible Aligners', copy: 'Clear aligner therapy for modern, low-visibility smile correction with guided treatment sequencing.', image: '/service-invisible-aligners.png', duration: '6-18 months', sessions: 'Planned refinements', bestFor: 'Clear aligners for discreet teeth straightening.' },
+      { title: 'Invisible Aligners', copy: 'Clear aligner therapy for modern, low-visibility smile correction with guided treatment sequencing.', image: '/retainer.png', duration: '6-18 months', sessions: 'Planned refinements', bestFor: 'Clear aligners for discreet teeth straightening.' },
       { title: 'Metal Braces', copy: 'Reliable correction for crooked, crowded, or malaligned teeth using durable fixed orthodontic appliances.', image: '/service-metal-braces.png', duration: '12-24 months', sessions: 'Monthly reviews', bestFor: 'Traditional reliable orthodontic treatment.' },
       { title: 'Ceramic Braces', copy: 'Aesthetic brace systems that blend more discreetly with natural teeth while correcting alignment effectively.', image: '/service-ceramic-braces.png', duration: '12-24 months', sessions: 'Monthly reviews', bestFor: 'Tooth-coloured brackets for a discreet look.' },
       { title: 'Orthodontic Consultation & Diagnosis', copy: 'Assessment and treatment planning for bite correction, smile alignment, and dentofacial harmony.', image: '/service-orthodontic-consultation.png', duration: '30-45 min', sessions: 'Initial + follow-up', bestFor: 'Understanding whether braces, aligners, or monitoring is right for you.' },
