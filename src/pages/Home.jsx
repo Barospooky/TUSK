@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import './Home.css'
 
 const quickStats = [
-  { value: '5,000+', label: 'Happy Patients' },
-  { value: '18', label: 'Years in Practice' },
-  { value: '4', label: 'Specialist Doctors' },
+  { value: '100+', label: 'Happy Patients' },
+  { value: '15', label: 'Years in Practice' },
+  { value: '3', label: 'Specialist Doctors' },
 ]
 
 const services = [
@@ -47,6 +47,42 @@ const treatmentIconPaths = {
   root: 'M8.2 3.7c1.2-.8 2.6.2 3.8.2s2.6-1 3.8-.2c1.8 1.1 1.5 4.3.5 6.7-.7 1.7-1.1 3.4-1.4 5.2-.3 2.1-.8 4.3-2.2 4.3-1.2 0-1.2-3.5-2.7-3.5s-1.5 3.5-2.7 3.5c-1.4 0-1.9-2.2-2.2-4.3-.3-1.8-.7-3.5-1.4-5.2-1-2.4-1.3-5.6.5-6.7Z M12 7.8v7.8 M9.7 11.1H12 M12 13.6h2.3',
   aligners: 'M5.4 10.2c1.2-2.2 3.4-3.4 6.6-3.4s5.4 1.2 6.6 3.4 M6.4 12.5h11.2 M8 10.1h2.5v3.2H8z M13.5 10.1H16v3.2h-2.5z M8.3 16.2c2.4 1.3 5 1.3 7.4 0',
   sparkle: 'M8.3 3.7c1.2-.8 2.6.2 3.8.2s2.6-1 3.8-.2c1.8 1.1 1.5 4.3.5 6.7-.7 1.7-1.1 3.4-1.4 5.2-.3 2.1-.8 4.3-2.2 4.3-1.2 0-1.2-3.5-2.7-3.5s-1.5 3.5-2.7 3.5c-1.4 0-1.9-2.2-2.2-4.3-.3-1.8-.7-3.5-1.4-5.2-1-2.4-1.3-5.6.5-6.7Z M18.2 4.8l.8 2.1 2.1.8-2.1.8-.8 2.1-.8-2.1-2.1-.8 2.1-.8.8-2.1Z M18.7 14.3l.5 1.4 1.4.5-1.4.5-.5 1.4-.5-1.4-1.4-.5 1.4-.5.5-1.4Z',
+}
+
+const whyChooseIcons = {
+  plan: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M7 3.75h10a1.25 1.25 0 0 1 1.25 1.25v14A1.25 1.25 0 0 1 17 20.25H7A1.25 1.25 0 0 1 5.75 19V5A1.25 1.25 0 0 1 7 3.75Z" />
+      <path d="M9 3.75V2.5M15 3.75V2.5M8 8h8M8 12h8M8 16h5" />
+    </svg>
+  ),
+  tech: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M7 7h10v10H7z" />
+      <path d="M4 4h3M17 4h3M4 20h3M17 20h3M4 7V4M20 7V4M4 17v3M20 17v3" />
+      <path d="M10 10h4v4h-4z" />
+    </svg>
+  ),
+  specialists: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M16 21v-2a4 4 0 0 0-4-4h-4a4 4 0 0 0-4 4v2" />
+      <path d="M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM19.5 21v-1.5a3.5 3.5 0 0 0-2.5-3.35" />
+      <path d="M16.5 3.85a4 4 0 0 1 0 7.3" />
+    </svg>
+  ),
+  comfort: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 21s-7-4.35-7-10.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 7 4.5C19 16.65 12 21 12 21Z" />
+      <path d="M9 10.5h6M12 7.5v6" />
+    </svg>
+  ),
+  pricing: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6 3.75h12v16.5H6z" />
+      <path d="M9 7.5h6M9 11.25h6M9 15h3" />
+      <path d="M17 6h1.5M17 10h1.5M17 14h1.5" />
+    </svg>
+  ),
 }
 
 const transformations = [
@@ -134,11 +170,11 @@ const testimonials = [
 ]
 
 const whyChooseUs = [
-  { icon: '◆', title: 'Personalised Treatment Plans', desc: 'Every case is uniquely planned based on your diagnosis, goals, and comfort preferences.' },
-  { icon: '●', title: 'Advanced Technology', desc: 'Modern equipment and magnification-assisted techniques for precision and safety.' },
-  { icon: '✦', title: 'Experienced Specialists', desc: 'A team of focused specialists across all dental disciplines, led by our founder.' },
-  { icon: '◇', title: 'Comfortable Environment', desc: 'A calm, thoughtfully designed space that takes the stress out of dental visits.' },
-  { icon: '✺', title: 'Transparent Pricing', desc: 'Clear treatment timelines and cost breakdowns before you commit to anything.' },
+  { icon: whyChooseIcons.plan, title: 'Personalised Treatment Plans', desc: 'Every case is uniquely planned based on your diagnosis, goals, and comfort preferences.' },
+  { icon: whyChooseIcons.tech, title: 'Advanced Technology', desc: 'Modern equipment and magnification-assisted techniques for precision and safety.' },
+  { icon: whyChooseIcons.specialists, title: 'Experienced Specialists', desc: 'A team of focused specialists across all dental disciplines, led by our founder.' },
+  { icon: whyChooseIcons.comfort, title: 'Comfortable Environment', desc: 'A calm, thoughtfully designed space that takes the stress out of dental visits.' },
+  { icon: whyChooseIcons.pricing, title: 'Transparent Pricing', desc: 'Clear treatment timelines and cost breakdowns before you commit to anything.' },
 ]
 
 const patientJourney = [

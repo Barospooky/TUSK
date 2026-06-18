@@ -98,10 +98,32 @@ const specialists = [
 ]
 
 const values = [
-  { icon: '◆', title: 'Accurate Diagnosis', desc: 'We begin with understanding the concern and identifying the real cause before planning treatment.' },
-  { icon: '●', title: 'Clear Communication', desc: 'Patients are guided through options, timelines, and next steps in simple language.' },
-  { icon: '✦', title: 'Comfort-First Care', desc: 'Treatment is planned with attention to anxiety, comfort, hygiene, and a calm clinic experience.' },
-  { icon: '✺', title: 'Ethical Planning', desc: 'We recommend what is needed and preserve natural teeth whenever clinically possible.' },
+  { icon: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M10.5 5.25a5.25 5.25 0 1 1-3.71 8.96L4.5 16.5" />
+      <path d="M8.25 10.5h3.75" />
+      <path d="M16.5 16.5 19.5 19.5" />
+      <path d="M18.75 18.75h-2.25v-2.25" />
+    </svg>
+  ), title: 'Accurate Diagnosis', desc: 'We begin with understanding the concern and identifying the real cause before planning treatment.' },
+  { icon: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M21 15a4 4 0 0 1-4 4H8l-4 2v-3a2 2 0 0 1-2-2V7a4 4 0 0 1 4-4h11a4 4 0 0 1 4 4Z" />
+      <path d="M8 9h8M8 12h6" />
+    </svg>
+  ), title: 'Clear Communication', desc: 'Patients are guided through options, timelines, and next steps in simple language.' },
+  { icon: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 21s-7-4.35-7-10.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 7 4.5C19 16.65 12 21 12 21Z" />
+      <path d="M9 10.5h6M12 7.5v6" />
+    </svg>
+  ), title: 'Comfort-First Care', desc: 'Treatment is planned with attention to anxiety, comfort, hygiene, and a calm clinic experience.' },
+  { icon: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3.75 4.5 6.75v5.25c0 4.5 3 7.5 7.5 8.25 4.5-.75 7.5-3.75 7.5-8.25V6.75L12 3.75Z" />
+      <path d="M9 12l2 2 4-4" />
+    </svg>
+  ), title: 'Ethical Planning', desc: 'We recommend what is needed and preserve natural teeth whenever clinically possible.' },
 ]
 
 export default function About() {

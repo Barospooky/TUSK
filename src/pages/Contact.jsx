@@ -66,58 +66,6 @@ export default function Contact() {
 
       <section className="section">
         <div className="container">
-          {/* Contact Info Row */}
-          <div className="contact-info-row">
-            {[
-              {
-                icon: (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="20" height="20" aria-hidden="true">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
-                  </svg>
-                ),
-                title: 'Location',
-                lines: ['D-202, New Raikar Chambers', 'Opposite Neelkanth Apartments, Deonar, Mumbai - 400088'],
-              },
-              {
-                icon: (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="20" height="20" aria-hidden="true">
-                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.1 11.28 19.79 19.79 0 01.07 2.69 2 2 0 012.07.5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006 6l.87-.87a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 15.22v1.7z"/>
-                  </svg>
-                ),
-                title: 'Phone',
-                lines: ['+91 98765 43210', 'Call or WhatsApp for appointments'],
-              },
-              {
-                icon: (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="20" height="20" aria-hidden="true">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
-                  </svg>
-                ),
-                title: 'Email',
-                lines: ['hello@tuskdental.com', 'appointments@tuskdental.com'],
-              },
-              {
-                icon: (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="20" height="20" aria-hidden="true">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/>
-                  </svg>
-                ),
-                title: 'Hours',
-                lines: ['Mon – Sat: 9:00 AM – 8:00 PM', 'Sunday: By appointment only'],
-              },
-            ].map((item) => (
-              <div key={item.title} className="contact-info-item">
-                <div className="contact-info-item__icon">{item.icon}</div>
-                <div>
-                  <div className="contact-info-item__title">{item.title}</div>
-                  {item.lines.map((line) => (
-                    <div key={line} className="contact-info-item__line">{line}</div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
           {/* Form + Map Grid */}
           <div className="contact-grid">
             <div className="contact-form-wrap">
@@ -132,7 +80,7 @@ export default function Contact() {
                 </div>
               ) : (
                 <form className="contact-form" onSubmit={handleSubmit} noValidate>
-                  <h3 className="contact-form__title">Book Your Appointment</h3>
+                  <h3 className="contact-form__title">Contact Us</h3>
                   <div className="divider">
                     <div className="divider-line" />
                     <span className="divider-icon">◆</span>
@@ -253,25 +201,79 @@ export default function Contact() {
               )}
             </div>
 
-            {/* Google Maps Embed */}
-            <div className="contact-map-wrap">
-              <iframe
-                title="The Tusk Dental Clinic Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.5!2d72.9!3d19.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c627bef3a4d7%3A0xf8b8f2b37b1c4e5a!2sDeonar%2C%20Mumbai%2C%20Maharashtra%20400088!5e0!3m2!1sen!2sin!4v1717775000000!5m2!1sen!2sin"
-                className="contact-map"
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                aria-label="Map showing The Tusk Dental Clinic location in Deonar, Mumbai"
-              />
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=D-202%2C%20New%20Raikar%20Chambers%2C%20Deonar%2C%20Mumbai%20400088"
-                target="_blank"
-                rel="noreferrer"
-                className="contact-map-link"
-              >
-                Open in Google Maps →
-              </a>
+            <div className="contact-sidebar">
+              {/* Contact Info Row */}
+              <div className="contact-info-row">
+                {[
+                  {
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="20" height="20" aria-hidden="true">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+                      </svg>
+                    ),
+                    title: 'Location',
+                    lines: ['D-202, New Raikar Chambers', 'Opposite Neelkanth Apartments, Deonar, Mumbai - 400088'],
+                  },
+                  {
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="20" height="20" aria-hidden="true">
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.1 11.28 19.79 19.79 0 01.07 2.69 2 2 0 012.07.5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006 6l.87-.87a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 15.22v1.7z"/>
+                      </svg>
+                    ),
+                    title: 'Phone',
+                    lines: ['+91 98765 43210', 'Call or WhatsApp for appointments'],
+                  },
+                  {
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="20" height="20" aria-hidden="true">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                      </svg>
+                    ),
+                    title: 'Email',
+                    lines: ['hello@tuskdental.com', 'appointments@tuskdental.com'],
+                  },
+                  {
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="20" height="20" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/>
+                      </svg>
+                    ),
+                    title: 'Hours',
+                    lines: ['Mon – Sat: 9:00 AM – 8:00 PM', 'Sunday: By appointment only'],
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="contact-info-item">
+                    <div className="contact-info-item__icon">{item.icon}</div>
+                    <div>
+                      <div className="contact-info-item__title">{item.title}</div>
+                      {item.lines.map((line) => (
+                        <div key={line} className="contact-info-item__line">{line}</div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Google Maps Embed */}
+              <div className="contact-map-wrap">
+                <iframe
+                  title="The Tusk Dental Clinic Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.5!2d72.9!3d19.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c627bef3a4d7%3A0xf8b8f2b37b1c4e5a!2sDeonar%2C%20Mumbai%2C%20Maharashtra%20400088!5e0!3m2!1sen!2sin!4v1717775000000!5m2!1sen!2sin"
+                  className="contact-map"
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  aria-label="Map showing The Tusk Dental Clinic location in Deonar, Mumbai"
+                />
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=D-202%2C%20New%20Raikar%20Chambers%2C%20Deonar%2C%20Mumbai%20400088"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="contact-map-link"
+                >
+                  Open in Google Maps →
+                </a>
+              </div>
             </div>
           </div>
         </div>

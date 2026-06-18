@@ -34,6 +34,10 @@
   .whatsapp-float {
     display: none;
   }
+
+  .page-wrapper {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
 }
 
 /* Focus states for accessibility */

@@ -263,37 +263,42 @@
 }
 
 .reference-hero__stats {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
   align-items: stretch;
 }
 
 .reference-hero__stat {
   display: flex;
-  align-items: baseline;
-  gap: 0.65rem;
-  padding: 1.15rem 1.6rem 1.15rem 0;
-  margin-right: 1.6rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 1.15rem 1.2rem;
   border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .reference-hero__stat:last-child {
-  margin-right: 0;
   border-right: 0;
 }
 
 .reference-hero__stat strong {
   color: var(--off-white);
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: clamp(1.5rem, 2.6vw, 2.35rem);
   font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .reference-hero__stat span {
   color: rgba(248, 244, 236, 0.48);
   font-family: var(--font-sans);
-  font-size: 0.64rem;
-  letter-spacing: 0.16rem;
+  font-size: clamp(0.58rem, 1vw, 0.78rem);
+  letter-spacing: 0.18rem;
   text-transform: uppercase;
+  line-height: 1.2;
 }
 
 .standard-strip {
@@ -1509,18 +1514,49 @@
 @media (max-width: 640px) {
   .reference-hero {
     min-height: auto;
+    padding-top: calc(var(--navbar-height) + 3rem);
+    padding-bottom: 4.75rem;
   }
 
   .reference-hero__inner {
-    padding-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding-top: 0;
+    padding-bottom: 1rem;
+  }
+
+  .reference-hero__content {
+    max-width: 100%;
+    padding-top: 0;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .reference-hero__title,
+  .reference-hero__copy {
+    margin-inline: auto;
   }
 
   .reference-hero__title {
-    font-size: clamp(2.65rem, 16vw, 4.2rem);
-    letter-spacing: 0;
+    font-size: clamp(2.25rem, 12.8vw, 3.3rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    max-width: 9ch;
+    text-wrap: balance;
+  }
+
+  .reference-hero__copy {
+    max-width: 28rem;
+    margin-top: 1.25rem;
+    font-size: 0.92rem;
+    line-height: 1.75;
   }
 
   .reference-hero__actions {
+    max-width: 28rem;
+    margin-top: 1.5rem;
     align-items: stretch;
   }
 
@@ -1531,29 +1567,12 @@
     text-align: center;
   }
 
-  .implant-visual {
-    width: min(100%, 24rem);
-    aspect-ratio: 1 / 1.05;
-  }
-
-  .implant-visual__label {
+  .reference-hero__visual {
     display: none;
   }
 
-  .reference-hero__stats {
-    width: 100%;
-    flex-direction: column;
-  }
-
-  .reference-hero__stat {
-    margin-right: 0;
-    padding-right: 0;
-    border-right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .reference-hero__stat:last-child {
-    border-bottom: 0;
+  .reference-hero__footer {
+    display: none;
   }
 
   .standard-strip__images {
@@ -1842,6 +1861,16 @@
   font-weight: 800;
   letter-spacing: 0.06rem;
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+}
+
+.why-diagnostic__icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .why-diagnostic__visual {

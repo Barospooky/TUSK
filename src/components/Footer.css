@@ -258,6 +258,10 @@
     justify-content: center;
   }
 
+  .footer__policies {
+    display: none;
+  }
+
   .footer__policies a + a::before {
     display: none;
   }
