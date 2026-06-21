@@ -190,10 +190,7 @@ export default function About() {
           </div>
 
           <div className="specialist-showcase">
-            <article className={`specialist-profile${activeDoctor.isFounder ? ' specialist-profile--founder' : ''}`}>
-              {activeDoctor.isFounder && (
-                <span className="specialist-founder-badge">Founder &amp; Chief Dental Surgeon</span>
-              )}
+            <article className="specialist-profile">
               <span className="specialist-profile__role">{activeDoctor.role}</span>
               <h3 className="specialist-profile__name">{activeDoctor.name}</h3>
               <p className="specialist-profile__focus">{activeDoctor.focus}</p>
@@ -251,11 +248,10 @@ export default function About() {
                 <button
                   key={doctor.name}
                   type="button"
-                  className={`specialist-selector__item ${index === activeDoctorIndex ? 'active' : ''}${doctor.isFounder ? ' specialist-selector__item--founder' : ''}`}
+                  className={`specialist-selector__item ${index === activeDoctorIndex ? 'active' : ''}`}
                   onClick={() => setActiveDoctorIndex(index)}
                   aria-label={`View profile of ${doctor.name}`}
                 >
-                  {doctor.isFounder && <span className="specialist-selector__founder-tag">Founder</span>}
                   <img src={doctor.image} alt={doctor.name} loading="lazy" />
                   <span>{doctor.name.replace('Dr. ', '')}</span>
                   <small>{doctor.role}</small>

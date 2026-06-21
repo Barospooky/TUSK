@@ -11,28 +11,53 @@ const aboutLinks = [
 const treatmentColumns = [
   {
     title: 'Restorative Care',
-    to: '/services#modern-dentistry',
-    items: ['Dental Implants', 'Fixed Bridges & Crowns', 'Dentures', 'Broken Tooth Reconstruction'],
+    to: '/services#restorative-care',
+    items: [
+      { label: 'Dental Implants', to: '/services#dental-implants' },
+      { label: 'Fixed Bridges & Crowns', to: '/services#fixed-bridges-and-crowns' },
+      { label: 'Dentures', to: '/services#removable-complete-and-partial-dentures' },
+      { label: 'Broken Tooth Reconstruction', to: '/services#broken-tooth-reconstruction' },
+    ],
   },
   {
     title: 'Cosmetic Dentistry',
     to: '/services#cosmetic-dentistry',
-    items: ['Smile Designing', 'Teeth Whitening', 'Tooth-Coloured Fillings', 'Facial Aesthetics'],
+    items: [
+      { label: 'Smile Designing', to: '/services#smile-designing' },
+      { label: 'Teeth Whitening', to: '/services#teeth-whitening-and-bleaching' },
+      { label: 'Tooth-Coloured Fillings', to: '/services#tooth-coloured-cosmetic-fillings' },
+      { label: 'Facial Aesthetics', to: '/services#facial-aesthetics' },
+    ],
   },
   {
     title: 'Endodontics',
-    to: '/services#root-canal-treatment',
-    items: ['Root Canal Treatment', 'Dental Pain Relief', 'Swelling & Infection Care', 'Traumatic Tooth Care'],
+    to: '/services#endodontics',
+    items: [
+      { label: 'Root Canal Treatment', to: '/services#root-canal-treatment' },
+      { label: 'Dental Pain Relief', to: '/services#severe-dental-pain-due-to-infection' },
+      { label: 'Swelling & Infection Care', to: '/services#dental-swelling-and-infection-management' },
+      { label: 'Traumatic Tooth Care', to: '/services#broken-and-traumatic-tooth-care' },
+    ],
   },
   {
     title: 'Orthodontics',
-    to: '/services#orthodontic-dentistry',
-    items: ['Invisible Aligners', 'Metal Braces', 'Ceramic Braces', 'Bite Correction'],
+    to: '/services#orthodontics',
+    items: [
+      { label: 'Invisible Aligners', to: '/services#invisible-aligners' },
+      { label: 'Metal Braces', to: '/services#metal-braces' },
+      { label: 'Ceramic Braces', to: '/services#ceramic-braces' },
+      { label: 'Bite Correction', to: '/services#orthodontic-consultation-and-diagnosis' },
+    ],
   },
   {
     title: 'General Dentistry',
     to: '/services#general-dentistry',
-    items: ['Cleaning & Scaling', 'Bad Breath Management', 'Tooth Extraction', 'Oral & Facial Pain'],
+    items: [
+      { label: 'Cleaning & Scaling', to: '/services#professional-cleaning-scaling' },
+      { label: 'Bad Breath Management', to: '/services#bad-breath-management' },
+      { label: 'Tooth Extraction', to: '/services#tooth-extraction-surgical-removal' },
+      { label: 'Oral & Facial Pain', to: '/services#oral-and-facial-pain-management' },
+    ],
   },
 ]
 
@@ -86,8 +111,8 @@ export default function Navbar() {
                   </Link>
                   <div className="navbar__treatment-list">
                     {column.items.map((item) => (
-                      <Link key={item} to={column.to} className="navbar__dropdown-link">
-                        <span>›</span>{item}
+                      <Link key={item.label} to={item.to} className="navbar__dropdown-link">
+                        <span>›</span>{item.label}
                       </Link>
                     ))}
                   </div>

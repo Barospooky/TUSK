@@ -89,7 +89,7 @@
   margin-bottom: 0.5rem;
 }
 
-.form-row {
+.form-row { 
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.2rem;

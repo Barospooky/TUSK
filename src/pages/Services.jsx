@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useMemo, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import './PageCommon.css'
 
 const treatments = [
@@ -8,7 +8,7 @@ const treatments = [
     items: [
       { title: 'Smile Designing', copy: 'Personalised smile enhancement planning with veneers, laminates, caps, and aesthetic fillings tailored to facial balance and dental harmony.', image: '/service-smile-designing.png', duration: 'Custom', sessions: 'Planned in stages', bestFor: 'Customized smile transformation for a confident, natural-looking smile.' },
       { title: 'Facial Aesthetics', copy: 'Non-surgical facial aesthetic support including Botox and fillers when indicated for balanced, refreshed results.', image: '/service-facial-aesthetics.png', duration: '30-60 min', sessions: 'As advised', bestFor: 'Subtle facial refinement that supports the overall smile and profile.' },
-      { title: 'Teeth Whitening & Bleaching', copy: 'Professional bleaching, polishing, and tooth-coloured aesthetic finishing for discoloured teeth.', image: '/tooth-hygiene.png', duration: '45-90 min', sessions: '1-2', bestFor: 'Professional whitening treatment for a brighter smile.' },
+      { title: 'Teeth Whitening & Bleaching', copy: 'Professional bleaching, polishing, and tooth-coloured aesthetic finishing for discoloured teeth.', image: '/service-teeth-whitening.png', duration: '45-90 min', sessions: '1-2', bestFor: 'Professional whitening treatment for a brighter smile.' },
       { title: 'Tooth-Coloured Cosmetic Fillings', copy: 'Natural-looking restorations used to rebuild decayed, chipped, or discoloured teeth.', image: '/service-tooth-coloured-fillings.png', duration: '30-60 min', sessions: '1', bestFor: 'Small cavities, chips, or visible restorations that need a natural finish.' },
     ],
   },
@@ -24,7 +24,7 @@ const treatments = [
   {
     category: 'Orthodontics',
     items: [
-      { title: 'Invisible Aligners', copy: 'Clear aligner therapy for modern, low-visibility smile correction with guided treatment sequencing.', image: '/retainer.png', duration: '6-18 months', sessions: 'Planned refinements', bestFor: 'Clear aligners for discreet teeth straightening.' },
+      { title: 'Invisible Aligners', copy: 'Clear aligner therapy for modern, low-visibility smile correction with guided treatment sequencing.', image: '/service-invisible-aligners.png', duration: '6-18 months', sessions: 'Planned refinements', bestFor: 'Clear aligners for discreet teeth straightening.' },
       { title: 'Metal Braces', copy: 'Reliable correction for crooked, crowded, or malaligned teeth using durable fixed orthodontic appliances.', image: '/service-metal-braces.png', duration: '12-24 months', sessions: 'Monthly reviews', bestFor: 'Traditional reliable orthodontic treatment.' },
       { title: 'Ceramic Braces', copy: 'Aesthetic brace systems that blend more discreetly with natural teeth while correcting alignment effectively.', image: '/service-ceramic-braces.png', duration: '12-24 months', sessions: 'Monthly reviews', bestFor: 'Tooth-coloured brackets for a discreet look.' },
       { title: 'Orthodontic Consultation & Diagnosis', copy: 'Assessment and treatment planning for bite correction, smile alignment, and dentofacial harmony.', image: '/service-orthodontic-consultation.png', duration: '30-45 min', sessions: 'Initial + follow-up', bestFor: 'Understanding whether braces, aligners, or monitoring is right for you.' },
@@ -109,13 +109,74 @@ const categoryIcons = {
   ),
 }
 
+const slugify = (value) =>
+  value
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+
 export default function Services() {
   const [activeTreatment, setActiveTreatment] = useState(null)
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const treatmentBySlug = useMemo(() => {
+    const map = new Map()
+    treatments.forEach((category) => {
+      category.items.forEach((treatment) => {
+        map.set(slugify(treatment.title), { ...treatment, category: category.category, slug: slugify(treatment.title) })
+      })
+    })
+    return map
+  }, [])
+
+  const categorySlugs = useMemo(() => {
+    const map = new Map()
+    treatments.forEach((category) => {
+      map.set(category.category, slugify(category.category))
+    })
+    return map
+  }, [])
+
+  useEffect(() => {
+    if (!location.hash) {
+      return
+    }
+
+    const hash = location.hash.replace('#', '')
+    if (hash === 'all-treatments') {
+      setActiveTreatment(null)
+      return
+    }
+
+    const matchedTreatment = treatmentBySlug.get(hash)
+    if (matchedTreatment) {
+      setActiveTreatment(matchedTreatment)
+      window.setTimeout(() => {
+        document.querySelector('#selected-treatment')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 60)
+      return
+    }
+
+    if ([...categorySlugs.values()].includes(hash)) {
+      setActiveTreatment(null)
+    }
+  }, [location.hash, treatmentBySlug, categorySlugs])
 
   const openTreatment = (treatment) => {
     setActiveTreatment(treatment)
+    navigate(`/services#${slugify(treatment.title)}`, { replace: false })
     window.setTimeout(() => {
       document.querySelector('#selected-treatment')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 60)
+  }
+
+  const showAllTreatments = () => {
+    setActiveTreatment(null)
+    navigate('/services#all-treatments', { replace: false })
+    window.setTimeout(() => {
+      document.querySelector('#all-treatments')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }, 60)
   }
 
@@ -126,6 +187,11 @@ export default function Services() {
 
     return (
       <section id="selected-treatment" className="treatment-detail treatment-detail--expanded">
+        <div className="treatment-detail__back-row">
+          <button type="button" className="treatment-detail__back" onClick={showAllTreatments}>
+            <span>←</span> Back to all treatments
+          </button>
+        </div>
         <div className="treatment-detail__hero">
           <div className="treatment-detail__intro">
             <span className="section-label">{treatment.category}</span>
@@ -222,14 +288,14 @@ export default function Services() {
       <div className="container services-page__body">
         <section id="all-treatments" className="treatment-catalog">
           {treatments.map((category) => (
-            <div key={category.category} className="treatment-catalog__group">
+            <div key={category.category} id={categorySlugs.get(category.category)} className="treatment-catalog__group">
               <div className="treatment-catalog__group-title">
                 <span>{categoryIcons[category.category]}</span>
                 <h3>{category.category}</h3>
               </div>
               <div className="treatment-catalog__grid">
                 {category.items.map((treatment) => {
-                  const hydratedTreatment = { ...treatment, category: category.category }
+                  const hydratedTreatment = { ...treatment, category: category.category, slug: slugify(treatment.title) }
                   return (
                     <button
                       key={treatment.title}

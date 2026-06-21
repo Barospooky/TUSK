@@ -32,12 +32,12 @@ const services = [
 ]
 
 const homeTreatmentPreview = [
-  { title: 'Dental Implants', desc: 'Permanent tooth replacement for confident smile and chewing support.', icon: 'implant', image: '/dental-implant.png?v=5' },
-  { title: 'Fixed Bridges & Crowns', desc: 'Natural-looking restoration and seamless gap replacement.', icon: 'crown', image: '/dental-surgery.png?v=2' },
-  { title: 'Removable Dentures', desc: 'Comfortable full or partial removable denture replacement.', icon: 'dentures', image: '/denture.png?v=2' },
-  { title: 'Root Canal Treatment', desc: 'Pain-free root canal treatment focused on saving the natural tooth.', icon: 'root', image: '/root-canal.png?v=2' },
-  { title: 'Invisible Aligners', desc: 'Clear aligners for discreet tooth straightening.', icon: 'aligners', image: '/retainer.png?v=1' },
-  { title: 'Teeth Whitening', desc: 'Professional whitening treatment for a brighter smile.', icon: 'sparkle', image: '/tooth-hygiene.png?v=1' },
+  { title: 'Dental Implants', desc: 'Permanent tooth replacement for confident smile and chewing support.', icon: 'implant', image: '/dental-implant.png?v=5', to: '/services#dental-implants' },
+  { title: 'Fixed Bridges & Crowns', desc: 'Natural-looking restoration and seamless gap replacement.', icon: 'crown', image: '/dental-surgery.png?v=2', to: '/services#fixed-bridges-and-crowns' },
+  { title: 'Removable Dentures', desc: 'Comfortable full or partial removable denture replacement.', icon: 'dentures', image: '/denture.png?v=2', to: '/services#removable-complete-and-partial-dentures' },
+  { title: 'Root Canal Treatment', desc: 'Pain-free root canal treatment focused on saving the natural tooth.', icon: 'root', image: '/root-canal.png?v=2', to: '/services#root-canal-treatment' },
+  { title: 'Invisible Aligners', desc: 'Clear aligners for discreet tooth straightening.', icon: 'aligners', image: '/retainer.png', to: '/services#invisible-aligners' },
+  { title: 'Teeth Whitening', desc: 'Professional whitening treatment for a brighter smile.', icon: 'sparkle', image: '/tooth-hygiene.png?v=1', to: '/services#teeth-whitening-and-bleaching' },
 ]
 
 const treatmentIconPaths = {
@@ -345,7 +345,7 @@ export default function Home() {
               {homeTreatmentPreview.map((treatment) => (
                 <Link
                   key={treatment.title}
-                  to="/services"
+                  to={treatment.to}
                   className={`home-treatments-preview__card ${treatment.icon === 'implant' ? 'home-treatments-preview__card--implant' : ''}`}
                 >
                   <span

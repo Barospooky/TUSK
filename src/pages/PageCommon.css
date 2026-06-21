@@ -428,6 +428,33 @@
   margin-bottom: clamp(4rem, 8vw, 6.5rem);
 }
 
+.treatment-detail__back-row {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+.treatment-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid rgba(207, 157, 60, 0.22);
+  background: rgba(0, 17, 44, 0.52);
+  color: var(--gold-light);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+}
+
+.treatment-detail__back:hover {
+  border-color: rgba(207, 157, 60, 0.4);
+  background: rgba(207, 157, 60, 0.1);
+}
+
 .treatment-detail__anchor {
   position: absolute;
   top: -7rem;
@@ -1534,7 +1561,8 @@
   .specialist-showcase {
     width: 100%;
     margin-inline: 0;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(7rem, 7.5rem);
+    gap: 1rem;
   }
 
   .specialist-profile {
@@ -1544,17 +1572,19 @@
     padding-right: 0;
   }
 
-  .specialist-profile__photo-frame,
-  .specialist-selector {
+  .specialist-profile__photo-frame {
     position: static;
   }
 
   .specialist-profile__photo-frame {
+    grid-column: 2;
+    grid-row: 1;
     width: 100%;
     min-height: auto;
-    max-width: 28rem;
-    height: 34rem;
-    margin-inline: auto;
+    max-width: none;
+    height: auto;
+    aspect-ratio: 0.78;
+    margin-inline: 0;
   }
 
   .specialist-profile__photo {
@@ -1562,6 +1592,7 @@
   }
 
   .specialist-selector {
+    grid-column: 1 / -1;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     max-height: none;
     overflow: visible;
@@ -1734,6 +1765,15 @@
     grid-template-columns: 1fr;
   }
 
+  .specialist-profile {
+    grid-column: 1;
+  }
+
+  .specialist-profile__photo-frame {
+    grid-column: 2;
+    aspect-ratio: 0.82;
+  }
+
   .specialist-selector__item {
     display: grid;
     grid-template-columns: 4.5rem 1fr;
@@ -1762,45 +1802,6 @@
   }
 }
 
-
-/* ── Specialist Founder Enhancements ── */
-.specialist-founder-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-  color: var(--navy);
-  font-family: var(--font-sans);
-  font-size: 0.55rem;
-  font-weight: 700;
-  letter-spacing: 0.2rem;
-  text-transform: uppercase;
-  padding: 0.3rem 1rem;
-  border-radius: 999px;
-  margin-bottom: 0.8rem;
-}
-
-.specialist-profile--founder {
-  border-left: 2px solid var(--gold-dark);
-  padding-left: 1rem;
-}
-
-.specialist-selector__founder-tag {
-  display: block !important;
-  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-  color: var(--navy);
-  font-size: 0.4rem !important;
-  font-weight: 700;
-  letter-spacing: 0.15rem;
-  text-transform: uppercase;
-  padding: 0.15rem 0.45rem;
-  border-radius: 999px;
-  width: fit-content;
-  margin-bottom: 0.25rem;
-}
-
-.specialist-selector__item--founder {
-  border-color: rgba(207, 157, 60, 0.35);
-  background: rgba(207, 157, 60, 0.05);
-}
 
 /* ── Mobile sticky CTA Bar ── */
 .mobile-cta-bar {
