@@ -876,8 +876,8 @@
 }
 
 .doctors-panel__card {
-  width: min(100vw - 2rem, 1360px);
-  margin-inline: calc((100% - min(100vw - 2rem, 1360px)) / 2);
+  width: min(calc(100vw - 2rem), var(--content-max));
+  margin-inline: calc((100% - min(calc(100vw - 2rem), var(--content-max))) / 2);
   border-radius: 1.8rem;
   background: #d8e8f5;
   padding: clamp(2.2rem, 5vw, 4rem) clamp(1.2rem, 4vw, 3.5rem);

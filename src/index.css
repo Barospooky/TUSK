@@ -22,6 +22,8 @@
   --font-sans: 'Montserrat', sans-serif;
   --navbar-gap: 1rem;
   --navbar-height: 4.5rem;
+  --content-max: 1600px;
+  --content-gutter: clamp(1rem, 2vw, 2rem);
 }
 
 html {
@@ -156,9 +158,10 @@ video {
 }
 
 .container {
-  max-width: 1200px;
+  width: 100%;
+  max-width: var(--content-max);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding-inline: var(--content-gutter);
 }
 
 @media (max-width: 560px) {

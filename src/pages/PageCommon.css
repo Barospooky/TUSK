@@ -65,7 +65,7 @@
 
 /* SERVICES PAGE */
 .services-page__body {
-  max-width: 1360px;
+  max-width: var(--content-max);
   padding-top: 5rem;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
@@ -1119,9 +1119,9 @@
 }
 
 .specialists-header {
-  width: min(100vw - 2rem, 1360px);
+  width: min(calc(100vw - 2rem), var(--content-max));
   max-width: none;
-  margin-inline: calc((100% - min(100vw - 2rem, 1360px)) / 2);
+  margin-inline: calc((100% - min(calc(100vw - 2rem), var(--content-max))) / 2);
   margin-bottom: 2.6rem;
   text-align: center;
 }
@@ -1136,8 +1136,8 @@
 }
 
 .specialist-showcase {
-  width: min(100vw - 2rem, 1360px);
-  margin-inline: calc((100% - min(100vw - 2rem, 1360px)) / 2);
+  width: min(calc(100vw - 2rem), var(--content-max));
+  margin-inline: calc((100% - min(calc(100vw - 2rem), var(--content-max))) / 2);
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(18rem, 0.72fr) 9.5rem;
   gap: 2rem;
