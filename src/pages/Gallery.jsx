@@ -2,11 +2,11 @@ import React from 'react'
 import './PageCommon.css'
 
 const clinicGallery = [
-  { image: '/clinic-treatment-room.jpeg', title: 'Treatment Suite' },
-  { image: '/clinic-consultation-room.jpeg', title: 'Consultation Room' },
-  { image: '/clinic-awards-hallway.jpeg', title: 'Clinic Interior' },
-  { image: '/story-reception.jpeg', title: 'Reception Space' },
-  { image: '/story-hallway.jpeg', title: 'Clinic Hallway' },
+  { image: '/clinic-treatment-room.webp', title: 'Treatment Suite' },
+  { image: '/clinic-consultation-room.webp', title: 'Consultation Room' },
+  { image: '/clinic-awards-hallway.webp', title: 'Clinic Interior' },
+  { image: '/story-reception.webp', title: 'Reception Space' },
+  { image: '/story-hallway.webp', title: 'Clinic Hallway' },
 ]
 
 export default function Gallery() {

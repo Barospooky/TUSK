@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="footer__grid">
           <div className="footer__brand">
             <Link to="/" className="footer__logo-link" aria-label="The Tusk Dental Clinic home">
-              <img src="/tusk-logo.jpeg" alt="The Tusk Dental Clinic logo" className="footer__logo-image" />
+              <img src="/tusk-logo.webp" alt="The Tusk Dental Clinic logo" className="footer__logo-image" />
               <div className="footer__logo">
                 <span className="footer__logo-the">The</span>
                 <span className="footer__logo-name">Tusk</span>

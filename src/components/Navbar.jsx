@@ -74,10 +74,10 @@ export default function Navbar() {
   const closeMenu = () => setMenuOpen(false)
 
   return (
-    <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${menuOpen ? 'navbar--menu-open' : ''}`}>
       <div className="navbar__inner">
         <Link to="/" className="navbar__logo" onClick={closeMenu}>
-          <img src="/tusk-logo.jpeg" alt="The Tusk Dental Clinic" className="navbar__logo-image" />
+          <img src="/tusk-logo.webp" alt="The Tusk Dental Clinic" className="navbar__logo-image" />
           <div className="navbar__brand">
             <span className="navbar__brand-title">The Tusk Dental Clinic</span>
             <span className="navbar__brand-subtitle">Premium Dental Care</span>

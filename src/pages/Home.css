@@ -23,7 +23,7 @@
 .reference-hero__photo {
   background:
     radial-gradient(circle at 78% 16%, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0) 20%),
-    url('/hero-clinic-bg.png');
+    url('/hero-clinic-bg.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

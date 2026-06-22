@@ -12,32 +12,32 @@ const services = [
   {
     title: 'Smile Designing & Aesthetics',
     copy: 'Smile designing, veneers, laminates, bleaching, and facial aesthetic treatments planned for natural-looking enhancement.',
-    image: '/service-smile-designing.png',
+    image: '/service-smile-designing.webp',
   },
   {
     title: 'Braces & Aligners',
     copy: 'Metal braces, ceramic braces, and invisible aligners for crooked teeth, bite correction, and confident smile alignment.',
-    image: '/retainer.png',
+    image: '/retainer.webp',
   },
   {
     title: 'Root Canal & Pain Relief',
     copy: 'Root canal treatment, dental pain care, swelling management, and fractured tooth treatment focused on preserving teeth.',
-    image: '/service-root-canal-treatment.png',
+    image: '/service-root-canal-treatment.webp',
   },
   {
     title: 'Missing Teeth & Surgical Care',
     copy: 'Implants, dentures, fixed bridges, tooth-coloured and metal caps, surgical extractions, and mouth or facial pain management when needed.',
-    image: '/service-dental-implants.png',
+    image: '/service-dental-implants.webp',
   },
 ]
 
 const homeTreatmentPreview = [
-  { title: 'Dental Implants', desc: 'Permanent tooth replacement for confident smile and chewing support.', icon: 'implant', image: '/dental-implant.png?v=5', to: '/services#dental-implants' },
-  { title: 'Fixed Bridges & Crowns', desc: 'Natural-looking restoration and seamless gap replacement.', icon: 'crown', image: '/dental-surgery.png?v=2', to: '/services#fixed-bridges-and-crowns' },
-  { title: 'Removable Dentures', desc: 'Comfortable full or partial removable denture replacement.', icon: 'dentures', image: '/denture.png?v=2', to: '/services#removable-complete-and-partial-dentures' },
-  { title: 'Root Canal Treatment', desc: 'Pain-free root canal treatment focused on saving the natural tooth.', icon: 'root', image: '/root-canal.png?v=2', to: '/services#root-canal-treatment' },
-  { title: 'Invisible Aligners', desc: 'Clear aligners for discreet tooth straightening.', icon: 'aligners', image: '/retainer.png', to: '/services#invisible-aligners' },
-  { title: 'Teeth Whitening', desc: 'Professional whitening treatment for a brighter smile.', icon: 'sparkle', image: '/tooth-hygiene.png?v=1', to: '/services#teeth-whitening-and-bleaching' },
+  { title: 'Dental Implants', desc: 'Permanent tooth replacement for confident smile and chewing support.', icon: 'implant', image: '/dental-implant.webp?v=5', to: '/services#dental-implants' },
+  { title: 'Fixed Bridges & Crowns', desc: 'Natural-looking restoration and seamless gap replacement.', icon: 'crown', image: '/dental-surgery.webp?v=2', to: '/services#fixed-bridges-and-crowns' },
+  { title: 'Removable Dentures', desc: 'Comfortable full or partial removable denture replacement.', icon: 'dentures', image: '/denture.webp?v=2', to: '/services#removable-complete-and-partial-dentures' },
+  { title: 'Root Canal Treatment', desc: 'Pain-free root canal treatment focused on saving the natural tooth.', icon: 'root', image: '/root-canal.webp?v=2', to: '/services#root-canal-treatment' },
+  { title: 'Invisible Aligners', desc: 'Clear aligners for discreet tooth straightening.', icon: 'aligners', image: '/retainer.webp', to: '/services#invisible-aligners' },
+  { title: 'Teeth Whitening', desc: 'Professional whitening treatment for a brighter smile.', icon: 'sparkle', image: '/tooth-hygiene.webp?v=1', to: '/services#teeth-whitening-and-bleaching' },
 ]
 
 const treatmentIconPaths = {
@@ -90,8 +90,8 @@ const transformations = [
     category: 'Restorative Dentistry',
     title: 'Tooth-Coloured Filling',
     desc: 'Before shows the prepared cavity; after shows a natural composite filling shaped to restore the tooth surface.',
-    beforeImage: '/transform-clinic-room.jpeg',
-    afterImage: '/transform-clinic-room.jpeg',
+    beforeImage: '/transform-clinic-room.webp',
+    afterImage: '/transform-clinic-room.webp',
   },
 ]
 
@@ -103,7 +103,7 @@ const doctors = [
     experience: '15+ years of clinical excellence',
     summary: 'Micro-endodontics, smile designing, and advanced restorative care led with calm precision.',
     bio: 'Dr. Bala Subramanian is the founder of The Tusk Dental Clinic and its Chief Dental Surgeon. An MDS specialist in Conservative Dentistry and Endodontics, he built the clinic around a belief that every patient deserves calm, precise, and transparent dental care. His expertise spans micro-endodontics, smile designing, and advanced restorative care.',
-    image: '/dr-balasubramaniam-shankar.jpeg',
+    image: '/dr-balasubramaniam-shankar.webp',
     isFounder: true,
   },
   {
@@ -112,7 +112,7 @@ const doctors = [
     experience: '4 years of experience',
     summary: 'Advanced smile correction, braces, aligners, and dentofacial orthopaedic planning.',
     bio: 'Dr. Swapnil Yelmar is a dedicated Consultant Orthodontist specializing in advanced smile corrections and dentofacial orthopaedics. Trained at Government Dental College, Mumbai, he combines clinical precision with a patient-centric approach to deliver functional, aesthetic results.',
-    image: '/dr-swapnil-yelmar.jpeg',
+    image: '/dr-swapnil-yelmar.webp',
     isFounder: false,
   },
   {
@@ -121,7 +121,7 @@ const doctors = [
     experience: '2+ years of consultant practice',
     summary: 'Oral surgery, facial esthetics, critical care-aware planning, and patient-first surgical care.',
     bio: 'Dr. Heti Sunil Kacha is skilled in oral and maxillofacial surgery, facial esthetics, and critical care management. She focuses on tailored treatment planning and collaborative interdisciplinary care to deliver precise, patient-centered outcomes.',
-    image: '/dr-heti-kacha.jpeg',
+    image: '/dr-heti-kacha.webp',
     isFounder: false,
   },
 ]
@@ -260,7 +260,7 @@ export default function Home() {
           <div className="reference-hero__visual animate-in delay-2">
             <div className="implant-visual">
               <img
-                src="/hero-implant.png"
+                src="/hero-implant.webp"
                 alt="Dental implant visual"
                 className="implant-visual__image implant-visual__image--scene"
               />
@@ -297,14 +297,14 @@ export default function Home() {
             <div className="standard-strip__images">
               <div className="standard-strip__image-frame">
                 <img
-                  src="/clinic-treatment-room.jpeg"
+                  src="/clinic-treatment-room.webp"
                   alt="The Tusk treatment room"
                   className="standard-strip__image"
                 />
               </div>
               <div className="standard-strip__image-frame standard-strip__image-frame--secondary">
                 <img
-                  src="/clinic-consultation-room.jpeg"
+                  src="/clinic-consultation-room.webp"
                   alt="The Tusk consultation room"
                   className="standard-strip__image"
                 />
@@ -469,7 +469,7 @@ export default function Home() {
             <div className="why-diagnostic__visual" aria-hidden="true">
               <div className="why-diagnostic__orbit" />
               <div className="why-diagnostic__disc">
-                <img src="https://tranquildentalstudio.com/image/why-tooth.png" alt="" loading="lazy" />
+                <img src="/why-tooth.webp" alt="" loading="lazy" />
               </div>
             </div>
 
@@ -527,7 +527,7 @@ export default function Home() {
             </p>
 
             <div className="story-strip__feature-image">
-              <img src="/story-hallway.jpeg" alt="The Tusk clinic hallway" className="story-strip__image" loading="lazy" />
+              <img src="/story-hallway.webp" alt="The Tusk clinic hallway" className="story-strip__image" loading="lazy" />
               <div className="story-strip__quote">
                 <p>"Every detail in the clinic is designed to make treatment feel clearer and more comfortable."</p>
                 <span>The Tusk Dental Clinic</span>
@@ -537,7 +537,7 @@ export default function Home() {
 
           <div className="story-strip__details">
             <div className="story-strip__top-image">
-              <img src="/story-reception.jpeg" alt="The Tusk consultation area" className="story-strip__image" loading="lazy" />
+              <img src="/story-reception.webp" alt="The Tusk consultation area" className="story-strip__image" loading="lazy" />
             </div>
 
             <div className="story-strip__points">
@@ -564,11 +564,11 @@ export default function Home() {
               <div className="testimonials-strip__stars">★★★★★</div>
               <div className="testimonials-strip__score">4.9 <span>(2,100 reviews)</span></div>
               <div className="testimonials-strip__avatars">
-                <img src="/doctor-female-2.jpeg" alt="Patient" loading="lazy" />
-                <img src="/doctor-male-1.jpeg" alt="Patient" loading="lazy" />
-                <img src="/transform-doctor-male.jpeg" alt="Patient" loading="lazy" />
-                <img src="/transform-doctor-female.jpeg" alt="Patient" loading="lazy" />
-                <img src="/tusk-logo.jpeg" alt="The Tusk" loading="lazy" />
+                <img src="/doctor-female-2.webp" alt="Patient" loading="lazy" />
+                <img src="/doctor-male-1.webp" alt="Patient" loading="lazy" />
+                <img src="/transform-doctor-male.webp" alt="Patient" loading="lazy" />
+                <img src="/transform-doctor-female.webp" alt="Patient" loading="lazy" />
+                <img src="/tusk-logo.webp" alt="The Tusk" loading="lazy" />
               </div>
             </div>
           </div>
@@ -598,7 +598,7 @@ export default function Home() {
         <div className="container consultation-strip-dark__inner">
           <div className="consultation-strip-dark__image-panel">
             <img
-              src="/story-reception.jpeg"
+              src="/story-reception.webp"
               alt="The Tusk consultation space"
               className="consultation-strip-dark__image"
               loading="lazy"

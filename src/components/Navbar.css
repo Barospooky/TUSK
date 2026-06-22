@@ -17,6 +17,10 @@
   backdrop-filter: blur(18px);
 }
 
+.navbar--menu-open {
+  z-index: 1600;
+}
+
 .navbar__inner {
   width: min(1600px, calc(100% - 2rem));
   margin: 0 auto;
@@ -25,7 +29,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  min-height: 4.1rem;
+  min-height: 5rem;
   border-radius: 999px;
   background: transparent;
   border: 1px solid transparent;
@@ -53,8 +57,8 @@
 }
 
 .navbar__logo-image {
-  width: 50px;
-  height: 50px;
+  width: 56px;
+  height: 56px;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 10px 24px rgba(9, 22, 37, 0.2);
@@ -324,8 +328,23 @@
 }
 
 .navbar__mobile.open {
-  max-height: 760px;
+  max-height: calc(100dvh - 5.5rem);
   padding: 1rem 2rem 1.6rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(34, 48, 68, 0.4) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.navbar__mobile.open::-webkit-scrollbar {
+  width: 5px;
+}
+
+.navbar__mobile.open::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(34, 48, 68, 0.4);
 }
 
 .navbar__mobile a {
@@ -359,8 +378,22 @@
     backdrop-filter: blur(18px);
   }
 
+  .navbar__brand-title {
+    color: #203049;
+  }
+
+  .navbar__brand-subtitle {
+    color: rgba(44, 58, 79, 0.68);
+  }
+
   .navbar__inner {
     background: transparent;
+    min-height: 4.15rem;
+  }
+
+  .navbar__logo-image {
+    width: 44px;
+    height: 44px;
   }
 
   .navbar__links,
@@ -416,8 +449,8 @@
   }
 
   .navbar__logo-image {
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
   }
 
   .navbar__brand-title {
