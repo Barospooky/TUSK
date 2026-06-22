@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Footer.css'
 
-const mapUrl = 'https://www.google.com/maps/search/?api=1&query=D-202%2C%20New%20Raikar%20Chambers%2C%20Deonar%2C%20Mumbai%20400088'
-const mapEmbedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.234567890123!2d72.9123456789!3d19.0123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c63b12345678%3A0xabcdef1234567890!2sNew%20Raikar%20Chambers%2C%20Deonar%2C%20Mumbai%2C%20Maharashtra%20400088!5e0!3m2!1sen!2sin!4v1718000000000!5m2!1sen!2sin'
+const mapUrl = 'https://www.google.com/maps/place/The+Tusk+Dental+Clinic/@19.0526858,72.8973315,15z/data=!3m1!4b1!4m6!3m5!1s0x3be7c7f18e58f7a7:0x802a81c789286de7!8m2!3d19.0526664!4d72.9157856!16s%2Fg%2F11y_bf1f4m?entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D'
+const mapEmbedUrl = 'https://www.google.com/maps?q=The%20Tusk%20Dental%20Clinic%2C%2019.0526664%2C72.9157856&z=15&output=embed'
 
 export default function Footer() {
   return (
@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer__grid">
           <div className="footer__brand">
-            <Link to="/" className="footer__logo-link" aria-label="The Tusk Dental Clinic home">
+            <Link to="/" className="footer__logo-link" aria-label="The Tusk Dental Clinic home" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <img src="/tusk-logo.webp" alt="The Tusk Dental Clinic logo" className="footer__logo-image" />
               <div className="footer__logo">
                 <span className="footer__logo-the">The</span>

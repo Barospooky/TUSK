@@ -5,6 +5,7 @@ import './Contact.css'
 const MIN_DATE = new Date().toISOString().split('T')[0]
 const PHONE_REGEX = /^[0-9]{10}$/
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const CLINIC_WHATSAPP = '919876543210'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', service: '', message: '', date: '' })
@@ -50,7 +51,21 @@ export default function Contact() {
       setErrors(validationErrors)
       return
     }
+
+    const whatsappMessage = [
+      'Hello, I would like to request an appointment at The Tusk Dental Clinic.',
+      '',
+      `Name: ${form.name.trim()}`,
+      `Phone: ${form.phone.trim()}`,
+      `Email: ${form.email.trim() || 'Not provided'}`,
+      `Treatment: ${form.service}`,
+      `Preferred date: ${form.date || 'Not specified'}`,
+      `Message / concerns: ${form.message.trim() || 'Not provided'}`,
+    ].join('\n')
+
+    const whatsappUrl = `https://wa.me/${CLINIC_WHATSAPP}?text=${encodeURIComponent(whatsappMessage)}`
     setSubmitted(true)
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -258,7 +273,7 @@ export default function Contact() {
               <div className="contact-map-wrap">
                 <iframe
                   title="The Tusk Dental Clinic Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.5!2d72.9!3d19.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c627bef3a4d7%3A0xf8b8f2b37b1c4e5a!2sDeonar%2C%20Mumbai%2C%20Maharashtra%20400088!5e0!3m2!1sen!2sin!4v1717775000000!5m2!1sen!2sin"
+                  src="https://www.google.com/maps?q=The%20Tusk%20Dental%20Clinic%2C%2019.0526664%2C72.9157856&z=15&output=embed"
                   className="contact-map"
                   allowFullScreen=""
                   loading="lazy"
@@ -266,7 +281,7 @@ export default function Contact() {
                   aria-label="Map showing The Tusk Dental Clinic location in Deonar, Mumbai"
                 />
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=D-202%2C%20New%20Raikar%20Chambers%2C%20Deonar%2C%20Mumbai%20400088"
+                  href="https://www.google.com/maps/place/The+Tusk+Dental+Clinic/@19.0526858,72.8973315,15z/data=!3m1!4b1!4m6!3m5!1s0x3be7c7f18e58f7a7:0x802a81c789286de7!8m2!3d19.0526664!4d72.9157856!16s%2Fg%2F11y_bf1f4m?entry=ttu&amp;g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
                   rel="noreferrer"
                   className="contact-map-link"

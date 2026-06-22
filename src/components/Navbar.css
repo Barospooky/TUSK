@@ -29,7 +29,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  min-height: 5rem;
+  min-height: 5.35rem;
   border-radius: 999px;
   background: transparent;
   border: 1px solid transparent;
@@ -57,8 +57,8 @@
 }
 
 .navbar__logo-image {
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 10px 24px rgba(9, 22, 37, 0.2);
@@ -73,7 +73,7 @@
 .navbar__brand-title {
   color: rgba(244, 246, 250, 0.78);
   font-family: var(--font-display);
-  font-size: 0.98rem;
+  font-size: 1.04rem;
   line-height: 1.1;
   white-space: nowrap;
   transition: color 0.3s ease, opacity 0.3s ease;
@@ -82,7 +82,7 @@
 .navbar__brand-subtitle {
   color: rgba(229, 235, 242, 0.6);
   font-family: var(--font-sans);
-  font-size: 0.54rem;
+  font-size: 0.58rem;
   letter-spacing: 0.18rem;
   text-transform: uppercase;
   margin-top: 0.2rem;
@@ -107,7 +107,7 @@
   color: rgba(240, 244, 249, 0.76);
   text-decoration: none;
   font-family: var(--font-sans);
-  font-size: 0.66rem;
+  font-size: 0.72rem;
   letter-spacing: 0.16rem;
   text-transform: uppercase;
   transition: color 0.25s ease;
@@ -279,7 +279,7 @@
   flex: 0 0 auto;
   padding: 0.82rem clamp(1.15rem, 1.8vw, 1.8rem) !important;
   border-radius: 999px;
-  font-size: 0.6rem !important;
+  font-size: 0.66rem !important;
   letter-spacing: 0.16rem !important;
   box-shadow: none;
 }
@@ -380,10 +380,12 @@
 
   .navbar__brand-title {
     color: #203049;
+    font-size: 0.92rem;
   }
 
   .navbar__brand-subtitle {
     color: rgba(44, 58, 79, 0.68);
+    font-size: 0.52rem;
   }
 
   .navbar__inner {

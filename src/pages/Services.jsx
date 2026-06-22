@@ -116,6 +116,8 @@ const slugify = (value) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
 
+const sentenceCase = (value) => value.charAt(0).toUpperCase() + value.slice(1)
+
 export default function Services() {
   const [activeTreatment, setActiveTreatment] = useState(null)
   const location = useLocation()
@@ -241,7 +243,7 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="treatment-detail__block">
+        <div className="treatment-detail__block treatment-detail__block--procedure">
           <div className="treatment-detail__section-head">
             <h3>The Treatment <span>Procedure</span></h3>
             <p>Simple, predictable, and clearly explained before we begin.</p>
@@ -250,8 +252,8 @@ export default function Services() {
             {flow.map((step, stepIndex) => (
               <article key={step} className="treatment-procedure__step">
                 <span>{String(stepIndex + 1).padStart(2, '0')}</span>
-                <h4>{['Consultation', 'Treatment', 'Review'][stepIndex]}</h4>
-                <p>{step}</p>
+                <h4>{sentenceCase(['consultation', 'treatment', 'review'][stepIndex])}</h4>
+                <p>{sentenceCase(step)}</p>
               </article>
             ))}
           </div>

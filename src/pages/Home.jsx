@@ -516,15 +516,17 @@ export default function Home() {
       <section className="section story-strip reveal">
         <div className="container story-strip__inner">
           <div className="story-strip__intro">
-            <h2 className="story-strip__title">
-              We built The Tusk because
-              <span>patients deserve better.</span>
-            </h2>
+            <div className="story-strip__intro-copy">
+              <h2 className="story-strip__title">
+                We built The Tusk because
+                <span>patients deserve better.</span>
+              </h2>
 
-            <p className="story-strip__copy">
-              The clinic was shaped around one simple belief: exceptional dental care should
-              feel calm, considered, and deeply personal from the first conversation onward.
-            </p>
+              <p className="story-strip__copy">
+                The clinic was shaped around one simple belief: exceptional dental care should
+                feel calm, considered, and deeply personal from the first conversation onward.
+              </p>
+            </div>
 
             <div className="story-strip__feature-image">
               <img src="/story-hallway.webp" alt="The Tusk clinic hallway" className="story-strip__image" loading="lazy" />

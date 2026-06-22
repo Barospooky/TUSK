@@ -21,7 +21,7 @@
   --font-body: 'Cormorant Garamond', serif;
   --font-sans: 'Montserrat', sans-serif;
   --navbar-gap: 1rem;
-  --navbar-height: 4.5rem;
+  --navbar-height: 5.35rem;
   --content-max: 1600px;
   --content-gutter: clamp(1rem, 2vw, 2rem);
 }
@@ -162,6 +162,12 @@ video {
   max-width: var(--content-max);
   margin: 0 auto;
   padding-inline: var(--content-gutter);
+}
+
+@media (max-width: 1280px) {
+  :root {
+    --navbar-height: 4.15rem;
+  }
 }
 
 @media (max-width: 560px) {
